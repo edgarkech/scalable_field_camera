@@ -11,15 +11,17 @@ Project goals:
 Some technical goals:
 - the design is inspired by old and established field cameras like Horseman 45HD/FA or Linhof Technika. But it is also inspired by Intrepid and Standard Camera
 - compact and lightweight. Projected weight with ground glass but without lens is about 1500g
-- for 4x5": usable with lenses from 90-300mm. 
-- up/down shift of about 30mm with a normal lens
+- for 4x5": usable with lenses from 90-300mm. Shorter or longer lenses are not targeted.
+- up/down shift of about 25-30mm with a normal lens
 - front/back tilt of about 20 degrees
 - left/right tilt of about 10 degrees
 - left/right shift optionally
 - all movements on the front standard, no back movements
 - easy switchable from landscape to portrait format
 - tripod mount with Arca Swiss type mount
-- all parts must be either 3D-printable or easily available.
+- all parts must be either 3D-printable or easily available. 
+- no special tools required besides a decent 3D printer and some common tools like little files, screwdrivers, sanding paper, cutter, scissors, ...
+- no exotic third party parts/components 
 - form follows function
 - KISS 
 
