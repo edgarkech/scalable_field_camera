@@ -27,6 +27,7 @@ Some technical goals:
 - KISS 
 
 Early design decisions:
+- completely 3D printed rail and front standard mechanism - lots of dovetails :-)
 - for the 4x5 version I will use a bellows from standard cameras (https://www.standardcameras.com/product/replacement-bellows-v1-0/). For now it's easily available, cheap and already mounted into a frame. For later versions, I will probably switch over to another source and add my own bellows mounting frame.
 - for the 5x7 version I will use a bellows from ebay-shop "ecbuyonline2008" which is orginally for a Linhof Technika 5x7 IV or V
 - for the focusing rod I will use 5 or 6mm rods with 2mm pitch
