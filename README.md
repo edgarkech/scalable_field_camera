@@ -10,7 +10,7 @@ Project goals:
 
 Some technical goals:
 - the design is inspired by old and established field cameras like Horseman 45HD/FA or Linhof Technika. But it is also inspired by Intrepid and Standard Camera
-- compact and lightweight. Projected weight with ground glass but without lens is about 1500g
+- compact and lightweight. Projected weight for the 4x5 version with ground glass but without lens is below 1500g. The "overall package" should be lightweight, so don't expect me to design a rail and front standard to to hold big and heavy lenses.
 - for 4x5": usable with lenses from 90-300mm. Shorter or longer lenses are not targeted.
 - a small standard lens should be able to stay on the camera when it is closed (e.g. Fujinon-WS 150/6.3 or Symmar 135/5.6, ...)
 - rise of about 25-30mm with a normal lens
