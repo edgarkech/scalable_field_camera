@@ -28,7 +28,7 @@ Some technical goals:
 
 Early design decisions:
 - completely 3D printed rail and front standard mechanism - lots of dovetails :-)
-- for the 4x5 version I will use a bellows from standard cameras (https://www.standardcameras.com/product/replacement-bellows-v1-0/). For now it's easily available, cheap and already mounted into a frame. For later versions, I will probably switch over to another source and add my own bellows mounting frame.
+- for the initial 4x5 version I will use a bellows from standard cameras (https://www.standardcameras.com/product/replacement-bellows-v1-0/). For now it's relatively easy available, cheap and already mounted into a frame. For later versions, I will probably switch over to another source and add my own bellows mounting frame.
 - for the 5x7 version I will use a bellows from ebay-shop "ecbuyonline2008" which is orginally for a Linhof Technika 5x7 IV or V
 - for the focusing rod I will use 5 or 6mm rods with 2mm pitch
 - due to some printing related problems (first layer), I will avoid printing small holes directly onto the printing bed (smaller than 5mm). If holes are required, they will have a little offset on the Z-axis of 0.5mm. This will allow a "clean" first layer with really good adhesion, while the holes are "pre-drilled" for most of their depth
