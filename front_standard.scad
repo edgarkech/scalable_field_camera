@@ -51,17 +51,17 @@ vUprightHolder_offsetZ = vFrontStandartTiltPlate_height;
 
 vUpright_length = vFrontStandartTiltPlate_length;
 vUpright_width = 5;
-vUpright_height = 120;
+vUpright_height = 140;
 vUprightSlotCutout_length = 5+vTolerance_width;
 vUprightSlotCutout_width = vFrontStandartTiltPlate_width+(2*vUpright_width);
-vUprightSlotCutout_height = 80;
+vUprightSlotCutout_height = 60;
 vUprightLeft_offsetX = vFrontStandartTiltPlate_offsetX;
 vUprightRight_offsetX = vFrontStandartTiltPlate_offsetX;
 vUprightLeft_offsetY = vFrontStandartTiltPlate_width/2;
 vUprightRight_offsetY = -(vFrontStandartTiltPlate_width/2)-vUpright_width;
 vUprightSlotCutout_offsetX = -vUprightSlotCutout_length/2;
 vUprightSlotCutout_offsetY = -vUprightSlotCutout_width/2;
-vUprightSlotCutout_offsetZ = 30;
+vUprightSlotCutout_offsetZ = 70;
 
 vPullingLeverCutout_length = 5;
 vPullingLeverCutout_width = 60;

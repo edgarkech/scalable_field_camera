@@ -1,87 +1,5 @@
 // some variables
-$fn = 64; // we are using 64 fragments for cylinders and similar objects
-
-vTolerance = 0.2;
-
-
-// our outer frame measurements
-
-// bellows frame is 160x160, so we need at least 160x170 (because of the edge bolts)
-vOuterFrameLength = 170; // on X-axis
-vOuterFrameWidth = 160; // on Y-axis
-vOuterFrameHeight = 55; // on Z-axis
-vOuterFrameStrength = 5;
-
-// we are centering our model (kind of) for easier calculations 
-vOuterFrameOffsetX = vOuterFrameLength/2;
-vOuterFrameOffsetY = vOuterFrameWidth/2;
-
-// our edges depend on the wall strength
-vEdgeBoltDiameter = 2*vOuterFrameStrength;
-vEdgeBoltHole = 3;
-
-
-
-// cutout on the back for the bellows frame
-vBackCutout_length = 136;
-vBackCutout_width = 136;
-vBackCutout_height = 3;
-vBackCutout_offsetX = -vBackCutout_length/2;
-vBackCutout_offsetY = -vBackCutout_width/2;
-vBackCutout_offsetZ = 0;
-
-// we will use a raw cylinder with 4 fragments for the cutout, so we have to calculate the diameters
-vBellowsFrameLower_length = 136;
-vBellowsFrameUpper_length = 160;
-vBellowsFrameCutoutLower_d = sqrt(2*pow(vBellowsFrameLower_length,2));
-vBellowsFrameCutoutUpper_d = sqrt(2*pow(vBellowsFrameUpper_length,2));
-vBellowsFrameCutout_h = 5;
-vBellowsFrameCutout_offsetX = 0;
-vBellowsFrameCutout_offsetY = 0;
-vBellowsFrameCutout_offsetZ = 1;
-
-vBellowsScrewHole_d = 3;
-vBellowsScrewHole_h = vOuterFrameWidth+(2*vOuterFrameStrength);
-vBellowsScrewSinking_d1 = 6;
-vBellowsScrewSinking_h = vBellowsScrewSinking_d1/2;
-vBellowsScrewHole_offsetX = 70;
-vBellowsScrewHole_offsetY = vBellowsScrewHole_h/2;
-vBellowsScrewHole_offsetZ = 8;
-
-// the back frame will stabilize the outer frame
-vBackFrameLength = 150;
-vBackFrameWidth = 150;
-vBackFrameOffsetX = vBackFrameLength/2;
-vBackFrameOffsetY = vBackFrameWidth/2;
-
-// we integrate an Arca Swiss compatible tripod plate
-vArcaLength = 70;
-vArcaWidth = 39;
-vArcaCutoutDepth = 3;
-vArcaHeight = 12; //overall height
-vArcaBaseHeight = 1;
-
-// rails
-vRailOuterWidth = 80;
-vRailInnerWidth = 60;
-vRailHeight = 12;
-vRailLength = vOuterFrameHeight-vRailHeight-vOuterFrameStrength;
-vRailCutoutDepth = 4;
-vRailCutoutOffset = 1;
-vRailOffsetY = vRailOuterWidth/2;
-
-// hinges
-vHingeOuterWidth = vOuterFrameWidth-(4*vOuterFrameStrength)-vTolerance;
-vHingeInnerWidth = vHingeOuterWidth-(8*vOuterFrameStrength)+vTolerance;
-vHingeSingleWidth = (vHingeOuterWidth-vHingeInnerWidth)/2;
-vHingeBaseLength = 2*vOuterFrameStrength;
-vHingeBaseHeight = vOuterFrameHeight+vOuterFrameStrength;
-vHingeHole = 4+vTolerance;
-vHingeOffsetX = (vOuterFrameLength/2)-vOuterFrameStrength;
-vHingeOffsetY = vHingeOuterWidth/2;
-
-
-
+$fn = 60; // we are using 60 fragments for cylinders and similar objects
 
 module roof(l, w, h){
     polyhedron(
@@ -90,8 +8,8 @@ module roof(l, w, h){
             [l,0,0],
             [l,w,0],
             [0,w,0],
-            [l/2,0,h],
-            [l/2,w,h]
+            [0,w/2,h],
+            [l,w/2,h]
             ],
         faces=[
             [0,1,2,3],
@@ -101,193 +19,358 @@ module roof(l, w, h){
             [3,5,4,0]
             ]
             );
-    }
-
-//roof(20, 10, 15);
+    };
 
 module wedge(l, w, h) {
     polyhedron(
             points=[
                 [0,0,0],
                 [l,0,0],
+                [l,w,0],
                 [0,w,0],
                 [0,0,h],
-                [l,0,h],
-                [0,w,h]
+                [l,0,h]
             ],
             faces=[
-                [0,1,2],
-                [0,3,4,1],
-                [1,4,5,2],
-                [2,5,3,0],
-                [3,5,4]
+                [0,3,2,1],
+                [0,1,5,4],
+                [1,2,5],
+                [2,3,4,5],
+                [3,0,4]
             ]
     );
-   }    
-//wedge(20, 30, 40);
-
+   };    
 module tube(d1, d2, h) {
     difference() {
         cylinder(d=d1, h=h);
         cylinder(d=d2, h=h);
-        }
-    }
+        };
+    };
+
+module countersunk_screw(vScrew_d, vScrew_l){
+    union(){
+    cylinder(d=vScrew_d, h= vScrew_l);
+    cylinder(d1=vScrew_d*2, h=vScrew_d);
+    };
+};
+
+// variables
+
+
+
+// basic measurements, a lot of other measurements will be derived from them
+vOuterFrame_l = 185;
+vOuterFrame_w = 170;
+vOuterFrame_h = 65;
+
+vHingeInnerDistance = 100;
+vHingeBaseWidth = 20;
+vHingeHole = 5;
+
+// we will center our model on the Y axis and on the center of the bellows frame
+// thus, we will do an asymetric offset of 2.5mm on the X-axis (
+vAsymOffsetX = -2.5;  
+
+vBackPlateLength = 160;
+vBackPlateStrength = 5;
+vBellowsFrameStrength = 7; // in fact more, but we are only interested in a 2mm offset and 5mm pyramid
+vBellowsFrameUpperLength = 160;
+vBellowsFrameLowerLength = 136;
+
+vFrameStrength = 5;
+vTolerance = 0.2;
+
+vBottomWall_l = vFrameStrength;
+vBottomWall_w = vOuterFrame_w-(2*vFrameStrength);
+vBottomWall_h = vOuterFrame_h-vFrameStrength;
+vBottomWall_offsetX = -(vOuterFrame_l/2)+vAsymOffsetX;
+vBottomWall_offsetY = -vBottomWall_w/2;
+vBottomWall_offsetZ = 0;
+
+vTopWall_l = vFrameStrength;
+vTopWall_w = vOuterFrame_w-(2*vFrameStrength);
+vTopWall_h = vOuterFrame_h;
+vTopWall_offsetX = (vOuterFrame_l/2)+vAsymOffsetX-vFrameStrength;
+vTopWall_offsetY = -vTopWall_w/2;
+vTopWall_offsetZ = 0;
+
+vSideWall_l = vOuterFrame_l-(2*vFrameStrength);
+vSideWall_w = vFrameStrength;
+vSideWall_h = vOuterFrame_h;
+vSideWall_offsetX = -(vSideWall_l/2)+vAsymOffsetX;
+vSideWallLeft_offsetY = (vOuterFrame_w/2)-vFrameStrength;
+vSideWallRight_offsetY = -(vOuterFrame_w/2);
+vSideWall_offsetZ = 0;
+
+vEdgeBolt_d = 2*vFrameStrength;
+vBottomEdgeBolt_h = vBottomWall_h;
+vTopEdgeBolt_h = vTopWall_h;
+vBottomEdgeBolt_offsetX = -(vSideWall_l/2)+vAsymOffsetX;
+vTopEdgeBolt_offsetX = (vSideWall_l/2)+vAsymOffsetX;
+vEdgeBolt_offsetY = vBottomWall_w/2;
+vEdgeBolt_offsetZ = 0;
+
+vEdgeBoltCone_d1 = 6;
+vEdgeBoltCone_d2 = 3;
+vEdgeBoltCone_h = 3;
+vEdgeBoltCone_offsetZ = vOuterFrame_h;
+
+vBackPlate_l = vSideWall_l;
+vBackPlate_w = vBottomWall_w;
+vBackPlate_h = vBackPlateStrength+vBellowsFrameStrength; // 11
+vBackPlate_offsetX = -(vBackPlate_l/2)+vAsymOffsetX; 
+vBackPlate_offsetY = -vBackPlate_w/2; 
+vBackPlate_offsetZ = 0; 
+
+vBackWindow_l = vBellowsFrameLowerLength;
+vBackWindow_w = vBellowsFrameLowerLength;
+vBackWindow_h = vBackPlateStrength+vBellowsFrameStrength;
+vBackWindow_offsetX = -vBackWindow_l/2;
+vBackWindow_offsetY = -vBackWindow_w/2;
+vBackWindow_offsetZ = 0;
+
+vBackPlateCutout_l = vBackPlateLength;
+vBackPlateCutout_w = vBackPlateLength;
+vBackPlateCutout_h = vBackPlateStrength;
+vBackPlateCutout_offsetX = -vBackPlateCutout_l/2;
+vBackPlateCutout_offsetY = -vBackPlateCutout_w/2;
+vBackPlateCutout_offsetZ = 0;
+
+vBackPlateScrewHole_d = 2.2;
+vBackPlateScrewHole_h = 10;
+vBackPlateLockScrewHole_offsetX = vTopEdgeBolt_offsetX;
+vBackPlateLockScrewHole_offsetY = vEdgeBolt_offsetY;
+vBackPlateRailScrewHole_offsetX = -(vBackPlateLength/2)-5;
+vBackPlateRailScrewHole_offsetYi = 75;
+vBackPlateRailScrewHole_offsetYa = 65;
+vBackPlateScrewHole_offsetZ = 0;
+
+
+// we will use a raw cylinder with 4 fragments for the cutout, so we have to calculate the diameters
+vBellowsFrameCutoutLower_d = sqrt(2*pow(vBellowsFrameLowerLength,2));
+vBellowsFrameCutoutUpper_d = sqrt(2*pow(vBellowsFrameUpperLength,2));
+vBellowsFrameCutout_h = vBellowsFrameStrength-2;
+vBellowsFrameCutout_offsetX = 0;
+vBellowsFrameCutout_offsetY = 0;
+vBellowsFrameCutout_offsetZ = vBackPlateStrength+2;
+
+vBellowsScrew_d = 3+vTolerance;
+vBellowsScrew_h = vFrameStrength;
+vBellowsScrew_offsetX = 70;
+vBellowsScrew_offsetY = -(vOuterFrame_w/2);
+vBellowsScrew_offsetZ = vBellowsFrameCutout_offsetZ+vBellowsFrameStrength;
+
+// hinges
+
+vHingeOuter_d = 2*vFrameStrength;
+vHingeOuter_h = vHingeBaseWidth-vTolerance;
+vHingeInner_d = vHingeHole+vTolerance;
+vHingeInner_h = vHingeOuter_h;
+vHinge_offsetX = vSideWall_offsetX;
+vHinge_offsetY = (vHingeInnerDistance+vTolerance)/2;
+vHinge_offsetZ = vSideWall_h;
+
+vHingeColumn_l = vHingeOuter_d;
+vHingeColumn_w = vHingeOuter_h;
+vHingeColumn_h = vBottomWall_h+(vHingeOuter_d/2);
+vHingeColumn_offsetX = vBottomWall_offsetX;
+vHingeColumnLeft_offsetY = (vHingeInnerDistance+vTolerance)/2;
+vHingeColumnRight_offsetY = -((vHingeInnerDistance-vTolerance)/2)-vHingeBaseWidth;
+vHingeColumn_offsetZ = 0;
+
+vHingeWallCutout_d = 2*vFrameStrength;
+vHingeWallCutout_h = vFrameStrength;
+vHingeWallCutout_offsetX = vHinge_offsetX;
+vHingeWallCutout_offsetY = vSideWallLeft_offsetY;
+vHingeWallCutout_offsetZ = vSideWall_h;
+
+
+
+vStabilizerBlock_l = vBottomWall_h;
+vStabilizerBlock_w = 100;
+vStabilizerBlock_h = 12;
+vStabilizerBlock_offsetX = vBottomWall_offsetX;
+vStabilizerBlock_offsetY = -vStabilizerBlock_w/2;
+vStabilizerBlock_offsetZ = 0;
+
+vDovetailTolerance = 0.2;
+
+
+vDovetail_l = vBottomWall_h;
+vDovetailOuter_w = 50+vDovetailTolerance;
+vDovetailInner_w = 40+vDovetailTolerance;
+vDovetail_offsetX = vStabilizerBlock_offsetX-7-vDovetailTolerance;
+vDovetail_offsetY = -vDovetailOuter_w/2;
+vDovetail_offsetZ = 0;
+
+vDovetailToleranceCutout_l = vDovetailTolerance;
+vDovetailToleranceCutout_w = vDovetailOuter_w;
+vDovetailToleranceCutout_h = vBottomWall_h;
+vDovetailToleranceCutout_offsetX = vDovetail_offsetX;
+vDovetailToleranceCutout_offsetY = vDovetail_offsetY;
+vDovetailToleranceCutout_offsetZ = vDovetail_offsetZ;
+
+vLockingHole_d = 7;
+vLockingHole_h = 8;
+vLockingHole_offsetX = vDovetail_offsetX;
+vLockingHole_offsetY = 0;
+vLockingHole_offsetZ = 10;
 
 
 
 
-
-
-
-
-
+// only as helper
+//cylinder(d=160, h=20);
 
 difference(){
+
+    // box
     union(){
-        // we want to have rounded edges
-        
-        // edge bolt1
-        translate([-vOuterFrameOffsetX, -vOuterFrameOffsetY, 0])
-        cylinder(d=vEdgeBoltDiameter, h=vOuterFrameHeight);
-        
-        // edge bolt2
-        translate([-vOuterFrameOffsetX, vOuterFrameOffsetY, 0])
-        cylinder(d=vEdgeBoltDiameter, h=vOuterFrameHeight);
-                    
-        // edge bolt3
-        translate([vOuterFrameOffsetX, -vOuterFrameOffsetY, 0])
-        cylinder(d=vEdgeBoltDiameter, h=vOuterFrameHeight);
-        
-        // edge bolt4
-        translate([vOuterFrameOffsetX, vOuterFrameOffsetY, 0])
-        cylinder(d=vEdgeBoltDiameter, h=vOuterFrameHeight);
-        
-        // bottom wall -x offset
-        translate([-vOuterFrameOffsetX-vOuterFrameStrength, -vOuterFrameOffsetY, 0])
-        cube([vOuterFrameStrength, vOuterFrameWidth, vOuterFrameHeight]);
-        
-        // top wall +x offset
-        translate([vOuterFrameOffsetX, -vOuterFrameOffsetY, 0])
-        cube([vOuterFrameStrength, vOuterFrameWidth, vOuterFrameHeight]);
-        
-        // left wall -y offset
-        translate([-vOuterFrameOffsetX, -vOuterFrameOffsetY-vOuterFrameStrength, 0])
-        cube([vOuterFrameLength, vOuterFrameStrength, vOuterFrameHeight]);
-        
-        // right wall +y offset
-        translate([-vOuterFrameOffsetX, vOuterFrameOffsetY, 0])
-        cube([vOuterFrameLength, vOuterFrameStrength, vOuterFrameHeight]);
+        // back plate
+        translate([vBackPlate_offsetX, vBackPlate_offsetY, vBackPlate_offsetZ])
+            cube([vBackPlate_l, vBackPlate_w, vBackPlate_h]);
 
-        // back
-        translate([-vOuterFrameOffsetX, -vOuterFrameOffsetY, 0])
-            cube([vOuterFrameLength, vOuterFrameWidth, vBellowsFrameCutout_h+vBellowsFrameCutout_offsetZ]);
+        // bottom wall
+        translate([vBottomWall_offsetX, vBottomWall_offsetY, vBottomWall_offsetZ])
+            cube([vBottomWall_l, vBottomWall_w, vBottomWall_h]);
             
+        // top wall
+        translate([vTopWall_offsetX, vTopWall_offsetY, vTopWall_offsetZ])
+            cube([vTopWall_l, vTopWall_w, vTopWall_h]); 
+         
+        // left side wall
+        translate([vSideWall_offsetX, vSideWallLeft_offsetY, vSideWall_offsetZ])
+            cube([vSideWall_l, vSideWall_w, vSideWall_h]); 
+            
+        // right side wall
+        translate([vSideWall_offsetX, vSideWallRight_offsetY, vSideWall_offsetZ])
+            cube([vSideWall_l, vSideWall_w, vSideWall_h]); 
+            
+        // edge bolts
+            // bottom left
+            translate([vBottomEdgeBolt_offsetX, vEdgeBolt_offsetY, vEdgeBolt_offsetZ])
+                cylinder(d=vEdgeBolt_d, h=vBottomEdgeBolt_h);
+            // bottom right
+            translate([vBottomEdgeBolt_offsetX, -vEdgeBolt_offsetY, vEdgeBolt_offsetZ])
+                cylinder(d=vEdgeBolt_d, h=vBottomEdgeBolt_h);
+            // top left
+            translate([vTopEdgeBolt_offsetX, vEdgeBolt_offsetY, vEdgeBolt_offsetZ])
+                cylinder(d=vEdgeBolt_d, h=vTopEdgeBolt_h);
+            translate([vTopEdgeBolt_offsetX, vEdgeBolt_offsetY, vEdgeBoltCone_offsetZ])
+                cylinder(d1=vEdgeBoltCone_d1, d2=vEdgeBoltCone_d2, h=vEdgeBoltCone_h);    
+            // top right
+            translate([vTopEdgeBolt_offsetX, -vEdgeBolt_offsetY, vEdgeBolt_offsetZ])
+                cylinder(d=vEdgeBolt_d, h=vTopEdgeBolt_h);
+            translate([vTopEdgeBolt_offsetX, -vEdgeBolt_offsetY, vEdgeBoltCone_offsetZ])
+                cylinder(d1=vEdgeBoltCone_d1, d2=vEdgeBoltCone_d2, h=vEdgeBoltCone_h);
+            
+        // hinge columns
+            //left column
+            translate([vHingeColumn_offsetX, vHingeColumnLeft_offsetY, vHingeColumn_offsetZ])
+                cube([vHingeColumn_l, vHingeColumn_w, vHingeColumn_h]);
+            //right column
+            translate([vHingeColumn_offsetX, vHingeColumnRight_offsetY, vHingeColumn_offsetZ])
+                cube([vHingeColumn_l, vHingeColumn_w, vHingeColumn_h]);
+              
+        // hinge tube
+            // left
+            translate([vHinge_offsetX, vHinge_offsetY, vHinge_offsetZ])
+                rotate([-90, 0, 0])
+                    cylinder(d=vHingeOuter_d, h=vHingeOuter_h);
+            // right
+            translate([vHinge_offsetX, -vHinge_offsetY, vHinge_offsetZ])
+                rotate([90, 0, 0])
+                    cylinder(d=vHingeOuter_d, h=vHingeOuter_h);
         
-        /*
-        // arca plate
-        translate([-vOuterFrameOffsetX-vOuterFrameStrength-vArcaHeight, -vArcaWidth/2, 0])
-        difference(){
-            cube([vArcaHeight, vArcaWidth, vArcaLength]);
-            translate([4, 0, 0])
-            wedge(-vArcaCutoutDepth, vArcaCutoutDepth, vArcaLength);
-            translate([4, vArcaWidth, 0])
-            wedge(-vArcaCutoutDepth, -vArcaCutoutDepth, vArcaLength);
-        };
-        */
+        // stabilizer / dove tail plate
+        translate([vStabilizerBlock_offsetX, vStabilizerBlock_offsetY, vStabilizerBlock_offsetZ])
+            rotate([0, 270, 0])
+                intersection(){
+                    roof(vStabilizerBlock_l, vStabilizerBlock_w, vStabilizerBlock_w/4);
+                    cube([vStabilizerBlock_l, vStabilizerBlock_w, vStabilizerBlock_h]);
+                };
         
-        /*
-        // rails for parking/holding the front standard in the box
-        translate([-vOuterFrameOffsetX, -vRailOffsetY, vOuterFrameStrength])
-        difference(){
-            cube([vRailHeight, vRailOuterWidth, vRailLength]);
-            translate([0, (vRailOuterWidth-vRailInnerWidth)/2, 0])    
-            cube([vRailHeight, vRailInnerWidth, vRailLength]) ;   
-            translate([vRailHeight-vRailCutoutDepth-vRailCutoutOffset, 0, 0])
-            wedge(vRailCutoutDepth, vRailCutoutDepth, vRailLength);
-            translate([vRailHeight-vRailCutoutDepth-vRailCutoutOffset, vRailOuterWidth, 0])
-            wedge(vRailCutoutDepth, -vRailCutoutDepth, vRailLength);
-        };
-        */
-        
-        // hinges for the front lid
-        translate([-vOuterFrameOffsetX-vOuterFrameStrength, -vHingeOffsetY, 0 ])
-        difference(){
-            union(){
-                cube([vHingeBaseLength, vHingeOuterWidth, vHingeBaseHeight]);
-                translate([vHingeBaseLength/2, 0, vHingeBaseHeight])
-                rotate([0, 90, -270])
-                cylinder(d=vHingeBaseLength, h=vHingeOuterWidth);
             };
-            // subtracting the hole
-            translate([vHingeBaseLength/2, 0, vHingeBaseHeight])
-            rotate([0, 90, -270])
-            cylinder(d=vHingeHole, h=vHingeOuterWidth);
-            
-            // subtracting the inner block
-            translate([0, vHingeSingleWidth, 0])
-            cube([vHingeBaseLength, vHingeInnerWidth, vHingeBaseHeight+vOuterFrameStrength]);
-            
-
-        };
-        
-        // reinforcements for the lid struts
-        
-        
-    };
     
+    // back plate cutout
+    translate([vBackPlateCutout_offsetX, vBackPlateCutout_offsetY, vBackPlateCutout_offsetZ])
+        cube([vBackPlateCutout_l, vBackPlateCutout_w, vBackPlateCutout_h]);
     
-    
-    // cutout for bellows frame
-    // upper bellows cutout (cylinder with only 4 fragments)
+    // back window
+    translate([vBackWindow_offsetX, vBackWindow_offsetY, vBackWindow_offsetZ])
+        cube([vBackWindow_l, vBackWindow_w, vBackWindow_h]); 
+     
+    // cutout for bellows frame (pyramid)
     translate([vBellowsFrameCutout_offsetX, vBellowsFrameCutout_offsetY, vBellowsFrameCutout_offsetZ])
         rotate([0,0,45])
             cylinder(d1=vBellowsFrameCutoutLower_d, d2=vBellowsFrameCutoutUpper_d, h=vBellowsFrameCutout_h, $fn=4);
     
-    translate([vBackCutout_offsetX, vBackCutout_offsetY, vBackCutout_offsetZ])
-            cube([vBackCutout_length, vBackCutout_width, vBackCutout_height]);
-    
-    
-    // screw holes for bellows frame
-    // horizontal screwholes
-    translate([vBellowsScrewHole_offsetX, -vBellowsScrewHole_offsetY, vBellowsScrewHole_offsetZ])
+    // side wall cutouts for hinges
+    // cutout for the hinges
+    translate([vHingeWallCutout_offsetX, vHingeWallCutout_offsetY, vHingeWallCutout_offsetZ])
         rotate([-90, 0, 0])
-            cylinder(d=vBellowsScrewHole_d, h=vBellowsScrewHole_h);
-    translate([-vBellowsScrewHole_offsetX, -vBellowsScrewHole_offsetY, vBellowsScrewHole_offsetZ])
-        rotate([-90, 0, 0])
-            cylinder(d=vBellowsScrewHole_d, h=vBellowsScrewHole_h);
-    
-    // sinkings for the bellows screw holes        
-    // horizontal
-    translate([vBellowsScrewHole_offsetX, -vBellowsScrewHole_offsetY, vBellowsScrewHole_offsetZ])
-        rotate([-90, 0, 0])
-            cylinder(d1=vBellowsScrewSinking_d1, h=vBellowsScrewSinking_h);
-    translate([-vBellowsScrewHole_offsetX, -vBellowsScrewHole_offsetY, vBellowsScrewHole_offsetZ])
-        rotate([-90, 0, 0])
-            cylinder(d1=vBellowsScrewSinking_d1, h=vBellowsScrewSinking_h);
-    translate([vBellowsScrewHole_offsetX, vBellowsScrewHole_offsetY, vBellowsScrewHole_offsetZ])
+            cylinder(d=vHingeWallCutout_d, h=vHingeWallCutout_h);
+    translate([vHingeWallCutout_offsetX, -vHingeWallCutout_offsetY, vHingeWallCutout_offsetZ])
         rotate([90, 0, 0])
-            cylinder(d1=vBellowsScrewSinking_d1, h=vBellowsScrewSinking_h);
-    translate([-vBellowsScrewHole_offsetX, vBellowsScrewHole_offsetY, vBellowsScrewHole_offsetZ])
-        rotate([90, 0, 0])
-            cylinder(d1=vBellowsScrewSinking_d1, h=vBellowsScrewSinking_h);        
+            cylinder(d=vHingeWallCutout_d, h=vHingeWallCutout_h);        
     
+    // hinge holes
+        // left
+        translate([vHinge_offsetX, vHinge_offsetY, vHinge_offsetZ])
+            rotate([-90, 0, 0])
+                cylinder(d=vHingeInner_d, h=vHingeInner_h);
+        // right
+        translate([vHinge_offsetX, -vHinge_offsetY, vHinge_offsetZ])
+            rotate([90, 0, 0])
+                cylinder(d=vHingeInner_d, h=vHingeInner_h);
     
-    // we have to drill holes into our edge bolts
-    
-    // edge hole1
-    translate([-vOuterFrameOffsetX, -vOuterFrameOffsetY, 0])
-    cylinder(d=vEdgeBoltHole, h=vOuterFrameHeight);
-    
-    // edge hole2
-    translate([-vOuterFrameOffsetX, vOuterFrameOffsetY, 0])
-    cylinder(d=vEdgeBoltHole, h=vOuterFrameHeight);
+    // screw holes for the bellows screws
+        // left
+        translate([vBellowsScrew_offsetX, vBellowsScrew_offsetY, vBellowsScrew_offsetZ])
+            rotate([-90, 0, 0])
+                countersunk_screw(vBellowsScrew_d, vBellowsScrew_h);
+        translate([-vBellowsScrew_offsetX, vBellowsScrew_offsetY, vBellowsScrew_offsetZ])
+            rotate([-90, 0, 0])
+                countersunk_screw(vBellowsScrew_d, vBellowsScrew_h);
+        // right
+        translate([vBellowsScrew_offsetX, -vBellowsScrew_offsetY, vBellowsScrew_offsetZ])
+            rotate([90, 0, 0])
+                countersunk_screw(vBellowsScrew_d, vBellowsScrew_h);
+        translate([-vBellowsScrew_offsetX, -vBellowsScrew_offsetY, vBellowsScrew_offsetZ])
+            rotate([90, 0, 0])
+                countersunk_screw(vBellowsScrew_d, vBellowsScrew_h);
+                
+    // screw holes for back plate
+        // top/lock
+        translate([vBackPlateLockScrewHole_offsetX, vBackPlateLockScrewHole_offsetY, vBackPlateScrewHole_offsetZ])
+            cylinder(d=vBackPlateScrewHole_d, h=vBackPlateScrewHole_h);
+        translate([vBackPlateLockScrewHole_offsetX, -vBackPlateLockScrewHole_offsetY, vBackPlateScrewHole_offsetZ])
+            cylinder(d=vBackPlateScrewHole_d, h=vBackPlateScrewHole_h);
             
-    // edge hole3
-    translate([vOuterFrameOffsetX, -vOuterFrameOffsetY, 0])
-    cylinder(d=vEdgeBoltHole, h=vOuterFrameHeight);
+        // bottom rail
+        translate([vBackPlateRailScrewHole_offsetX, vBackPlateRailScrewHole_offsetYa, vBackPlateScrewHole_offsetZ])
+            cylinder(d=vBackPlateScrewHole_d, h=vBackPlateScrewHole_h);
+        translate([vBackPlateRailScrewHole_offsetX, vBackPlateRailScrewHole_offsetYi, vBackPlateScrewHole_offsetZ])
+            cylinder(d=vBackPlateScrewHole_d, h=vBackPlateScrewHole_h);    
+        translate([vBackPlateRailScrewHole_offsetX, -vBackPlateRailScrewHole_offsetYa, vBackPlateScrewHole_offsetZ])
+            cylinder(d=vBackPlateScrewHole_d, h=vBackPlateScrewHole_h);
+        translate([vBackPlateRailScrewHole_offsetX, -vBackPlateRailScrewHole_offsetYi, vBackPlateScrewHole_offsetZ])
+            cylinder(d=vBackPlateScrewHole_d, h=vBackPlateScrewHole_h);
+            
+    // stabilizer / dove tail
+        // tolerance cutout
+        translate([vDovetailToleranceCutout_offsetX, vDovetailToleranceCutout_offsetY, vDovetailToleranceCutout_offsetZ])
+            cube([vDovetailToleranceCutout_l, vDovetailToleranceCutout_w, vDovetailToleranceCutout_h]); 
+        // dovetail
+        translate([vDovetail_offsetX, vDovetail_offsetY, vDovetail_offsetZ])
+            rotate([0, 270, 0])
+                roof(vDovetail_l, vDovetailOuter_w, vDovetailOuter_w/2);
+                    
+    // stabilizer locking hole
+    translate([vLockingHole_offsetX, vLockingHole_offsetY, vLockingHole_offsetZ])
+        rotate([0, 90, 0])
+            cylinder(d=vLockingHole_d, h=vLockingHole_h);
     
-    // edge hole4
-    translate([vOuterFrameOffsetX, vOuterFrameOffsetY, 0])
-    cylinder(d=vEdgeBoltHole, h=vOuterFrameHeight);
-};
-
+    };
+        
+        

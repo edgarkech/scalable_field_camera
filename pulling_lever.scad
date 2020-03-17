@@ -8,7 +8,7 @@ vTolerance_diameter = 0.2;
 
 vLeverBasePlate_length = 20;
 vLeverBasePlate_width = 15;
-vLeverBasePlate_height = 3;
+vLeverBasePlate_height = 4;
 vLeverBasePlate_offsetX = 0;
 vLeverBasePlate_offsetY = -10;
 vLeverBasePlate_offsetZ = 0;
@@ -35,7 +35,7 @@ vPullingGrip_offsetX = vPullingLever_length-vPullingGrip_length;
 vPullingGrip_offsetY = vPullingLever_offsetY;
 vPullingGrip_offsetZ = 0;
 vPullingGripWedge_length = vPullingGrip_length;
-vPullingGripWedge_width = -2;
+vPullingGripWedge_width = -3;
 vPullingGripWedge_height = vPullingGrip_height;
 vPullingGripWedge_offsetX = vPullingLever_length;
 vPullingGripWedge_offsetY = vPullingLever_offsetY;

@@ -23,14 +23,14 @@ vCentralPlate_offsetZ = 0;
 */
 
 vBolt_diameter = 8-vTolerance_diameter;
-vBolt_height = vBoltPlate_height+4+vTolerance_height;
+vBolt_height = vBoltPlate_height+5;
 vBolt_offsetX = 0;
 vBolt_offsetY = vBoltPlate_offsetY;
 vBolt_offsetZ = 0;
 
 vCentralBlock_length = 30;
 vCentralBlock_width = 25;
-vCentralBlock_height = vBoltPlate_height+3+vTolerance_height;
+vCentralBlock_height = vBoltPlate_height+4+vTolerance_height;
 vCentralBlock_offsetX = -10;
 vCentralBlock_offsetY = -vCentralBlock_width/2;
 vCentralBlock_offsetZ = 0;
@@ -39,7 +39,8 @@ vSpringHole_d = 1.5;
 vSpringHole_h = vCentralBlock_width;
 vSpringHole_offsetX = 0;
 vSpringHole_offsetY = vCentralBlock_width/2;
-vSpringHole_offsetZ = vCentralBlock_height-vSpringHole_d;
+//vSpringHole_offsetZ = vCentralBlock_height-vSpringHole_d;
+vSpringHole_offsetZ = 3.5;
 
 vCentralHole_d = 12;
 vCentralHole_h = vBoltPlate_height;
@@ -47,7 +48,7 @@ vCentralHole_offsetX = 10;
 vCentralHole_offsetY = 0;
 vCentralHole_offsetZ = 0;
 
-vCentralScrewHexNut_keywidth = 10+vTolerance_width;
+vCentralScrewHexNut_keywidth = 8+vTolerance_width;
 vCentralScrewHexNut_height = 6;
 vCentralScrewHexNut_offsetX = 10;
 vCentralScrewHexNut_offsetY = 0;

@@ -29,13 +29,13 @@ vLowerDovetail_offsetX = -vLowerDovetail_outerwidth/2;
 vLowerDovetail_offsetY = -vLowerDovetail_length/2;
 vLowerDovetail_offsetZ = vDovetail_height;
 
-vCentralScrewHole_d = 6+2*vTolerance_width;
+vCentralScrewHole_d = 5+2*vTolerance_width;
 vCentralScrewHole_h = vFrontStandartBasePlate_height;
 vCentralScrewHole_offsetX = 0;
 vCentralScrewHole_offsetY = 0;
 vCentralScrewHole_offsetZ = 0;
 
-vCentralScrewHexNut_keywidth = 10+vTolerance_width;
+vCentralScrewHexNut_keywidth = 8+vTolerance_width;
 vCentralScrewHexNut_height = 6;
 vCentralScrewHexNut_offsetX = 0;
 vCentralScrewHexNut_offsetY = 0;

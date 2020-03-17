@@ -1,111 +1,6 @@
 // some variables
 $fn = 60; // we are using 60 fragments for cylinders and similar objects
 
-// our outer frame measurements
-vOuterFrame_length = 170; // on X-axis
-vOuterFrame_width = 160; // on Y-axis
-vOuterFrame_height = 10; // on Z-axis
-vOuterFrame_strength = 5;
-
-// we are centering our model on the Y axis for easier calculations 
-vOuterFrame_offsetX = 0;
-vOuterFrame_offsetY = vOuterFrame_width/2;
-
-vTolerance_length = 1;
-vTolerance_width = 0.2;
-vTolerance_height = 0.2;
-
-
-
-// slider
-vSliderTotal_height = 15;
-
-vSliderColumn_length = vOuterFrame_length-vOuterFrame_strength-vTolerance_length;
-vSliderColumnOuter_width = 80;
-vSliderColumnInner_width = 50+vTolerance_width; // including tolerance!
-vSliderColumn_width = (vSliderColumnOuter_width-vSliderColumnInner_width)/2;
-vSliderColumn_height = 10; 
-vSliderColumn_offsetX = vOuterFrame_offsetX;
-vSliderColumnLeft_offsetY = (vSliderColumnOuter_width/2)-vSliderColumn_width;
-vSliderColumnRight_offsetY = -vSliderColumnOuter_width/2;
-vSliderColumn_offsetZ = 0;
-
-vSliderStabilizer_length = 8;
-vSliderStabilizerBack_length = 25;
-vSliderStabilizer_width = vSliderColumnOuter_width;
-vSliderStabilizer_height = 5-vTolerance_height;
-vSliderStabilizerBack_offsetX = 0;
-vSliderStabilizerFront_offsetX = vSliderColumn_length-vSliderStabilizer_length;
-vSliderStabilizer_offsetY = -vSliderStabilizer_width/2;
-vSliderStabilizer_offsetZ = vSliderColumn_height-vSliderStabilizer_height;
-
-//vSlider
-vSliderUpperCutout_length = vSliderColumn_length;
-vSliderUpperCutout_width = vSliderColumnOuter_width-10+vTolerance_width;
-vSliderUpperCutout_height = vSliderTotal_height-vSliderColumn_height;
-vSliderUpperCutout_offsetX = vSliderColumn_offsetX;
-vSliderUpperCutout_offsetY = -vSliderUpperCutout_width/2;
-vSliderUpperCutout_offsetZ = vSliderColumn_height;
-
-vLowerDovetail_length = vOuterFrame_length;
-vLowerDovetail_width = 10; // we are using the roof module, so we don't have to rotate
-vLowerDovetail_height = 5;
-vLowerDovetail_offsetX = vSliderColumn_offsetX;
-vLowerDovetailLeft_offsetY = vSliderColumnLeft_offsetY+vSliderColumn_width+(vLowerDovetail_width/2);
-vLowerDovetailRight_offsetY = vSliderColumnRight_offsetY+(vLowerDovetail_width/2);
-vLowerDovetail_offsetZ = 0;
-
-
-vUpperDovetail_length = vSliderColumn_length;
-vUpperDovetail_width = vLowerDovetail_width; 
-vUpperDovetail_height = vLowerDovetail_height;
-// caution: because we have to rotate the upper dovetails, their offsets will be different from the lower dovetail offsets
-vUpperDovetail_offsetX = vSliderColumn_length; 
-vUpperDovetailLeft_offsetY = vSliderColumnLeft_offsetY+vSliderColumn_width+(vUpperDovetail_width/2);
-vUpperDovetailRight_offsetY = vSliderColumnRight_offsetY+(vUpperDovetail_width/2);
-vUpperDovetail_offsetZ = vSliderTotal_height;
-
-vSliderColumnExt_length = vOuterFrame_strength+vTolerance_length;
-vSliderColumnExt_width = vSliderColumn_width;
-vSliderColumnExt_height = vLowerDovetail_height;
-vSliderColumnExt_offsetX = vSliderColumn_length;
-vSliderColumnExtLeft_offsetY = vSliderColumnLeft_offsetY;
-vSliderColumnExtRight_offsetY = vSliderColumnRight_offsetY;
-vSliderColumnExt_offsetZ = 0;
-
-// lens hole
-vLensHole_diameter = 60;
-vLensHole_height = vSliderTotal_height;
-vLensHole_offsetX = (vOuterFrame_length/2);
-vLensHole_offsetY = 0; // we should be centered
-vLensHole_offsetZ = vLowerDovetail_height;
-
-// thread block holes
-vThreadBlockHole_diameter = 3;
-vThreadBlockHole_height = vSliderTotal_height;
-vThreadBlockHole_offsetX = vSliderStabilizerBack_length-5;
-vThreadBlockHole_offsetY = 15;
-vThreadBlockHole_offsetZ = 0;
-vThreadBlockBevel_d1 = vThreadBlockHole_diameter;
-vThreadBlockBevel_d2 = vThreadBlockHole_diameter*2;
-vThreadBlockBevel_height = (vThreadBlockBevel_d2-vThreadBlockBevel_d1)/2;
-vThreadBlockBevel_offsetX = vThreadBlockHole_offsetX;
-vThreadBlockBevel_offsetY = vThreadBlockHole_offsetY;
-vThreadBlockBevel_offsetZ = vSliderColumn_height-vThreadBlockBevel_height;
-
-// cutout for stop indents
-vStopIndentCutout_length = 4;
-vStopIndentCutout_width = vSliderUpperCutout_width + (2*vStopIndentCutout_length);
-vStopIndentCutout_height = 5;
-vStopIndentCutout1_offsetX = 25-(vStopIndentCutout_length/2);
-vStopIndentCutout2_offsetX = 55-(vStopIndentCutout_length/2);
-vStopIndentCutout3_offsetX = 85-(vStopIndentCutout_length/2);
-vStopIndentCutout4_offsetX = 115-(vStopIndentCutout_length/2);
-vStopIndentCutout5_offsetX = 145-(vStopIndentCutout_length/2);
-vStopIndentCutout_offsetY = -vStopIndentCutout_width/2;
-vStopIndentCutout_offsetZ = vSliderColumn_height;
-
-
 module roof(l, w, h){
     polyhedron(
         points=[
@@ -113,8 +8,8 @@ module roof(l, w, h){
             [l,0,0],
             [l,w,0],
             [0,w,0],
-            [l/2,0,h],
-            [l/2,w,h]
+            [0,w/2,h],
+            [l,w/2,h]
             ],
         faces=[
             [0,1,2,3],
@@ -126,133 +21,216 @@ module roof(l, w, h){
             );
     };
 
-//roof(20, 10, 15);
-
 module wedge(l, w, h) {
     polyhedron(
             points=[
                 [0,0,0],
                 [l,0,0],
+                [l,w,0],
                 [0,w,0],
                 [0,0,h],
-                [l,0,h],
-                [0,w,h]
+                [l,0,h]
             ],
             faces=[
-                [0,1,2],
-                [0,3,4,1],
-                [1,4,5,2],
-                [2,5,3,0],
-                [3,5,4]
+                [0,3,2,1],
+                [0,1,5,4],
+                [1,2,5],
+                [2,3,4,5],
+                [3,0,4]
             ]
     );
    };    
-//wedge(20, 30, 40);
 
 module tube(d1, d2, h) {
     difference() {
         cylinder(d=d1, h=h);
         cylinder(d=d2, h=h);
-        }
+        };
     };
- 
- 
+
+module countersunk_screw(vScrew_d, vScrew_l){
+    union(){
+    cylinder(d=vScrew_d, h= vScrew_l);
+    cylinder(d1=vScrew_d*2, h=vScrew_d);
+    };
+};
+    
     
 
+
+vRailTolerance = 0.2;    
+    
+vLowerRail_l = 172;
+vLowerRailOuter_w = 90-vRailTolerance;
+vLowerRailInner_w = 80-vRailTolerance;
+vLowerRail_h = 5;
+vLowerRail_offsetX = 0;
+vLowerRail_offsetY = -vLowerRailOuter_w/2;
+vLowerRail_offsetZ = 0;
+
+vUpperRail_l = 167;
+vUpperRailOuter_w = vLowerRailOuter_w;
+vUpperRail_h = vLowerRail_h;
+vUpperRail_offsetX = 0;
+vUpperRail_offsetY = -(vUpperRailOuter_w/2);
+vUpperRail_offsetZ = 0;
+
+vMidSection_h = 7;
+
+vUpperBlock_l = vUpperRail_l;
+vUpperBlock_w = vLowerRailInner_w;
+vUpperBlock_h = vUpperRail_h + vMidSection_h;
+vUpperBlock_offsetX = 0;
+vUpperBlock_offsetY = -vUpperBlock_w/2;
+vUpperBlock_offsetZ = vLowerRail_h;
+
+vMidCutout_l = vUpperRail_l-30;
+vMidCutout_w = 60;
+vMidCutout_h = vLowerRail_h+vUpperBlock_h;
+vMidCutout_offsetX = 15;
+vMidCutout_offsetY = -vMidCutout_w/2;
+vMidCutout_offsetZ = 0;
+
+vUpperCutout_l = vUpperRail_l;
+vUpperCutout_w = 70+vRailTolerance;
+vUpperCutout_h = vMidSection_h+1;
+vUpperCutout_offsetX = 0;
+vUpperCutout_offsetY = -vUpperCutout_w/2;
+vUpperCutout_offsetZ = vMidCutout_h-vUpperCutout_h;
+
+vLensCutout_d = 70;
+vLensCutout_h = vLowerRail_h+vUpperBlock_h;
+vLensCutout_offsetX = 80;
+vLensCutout_offsetY = 0;
+vLensCutout_offsetZ = 0;
+
+// cutout for stop indents
+vStopIndent_l = 4;
+vStopIndent_w = vUpperCutout_w + (2*vStopIndent_l);
+vStopIndent_h = 5;
+vStopIndentDistance = 25;
+vStopIndentCount = floor(vUpperRail_l/vStopIndentDistance);
+vStopIndent_offsetX = vStopIndentDistance;
+vStopIndent_offsetY = -vStopIndent_w/2;
+vStopIndent_offsetZ = vLowerRail_h+vMidSection_h+vUpperRail_h-vStopIndent_h;
+
+vFocusingLever_l = 60;
+vFocusingLever_w = 75;
+vFocusingLever_h = vMidSection_h-1;
+vFocusingLever_offsetX = 20;
+vFocusingLever_offsetY = 0;
+vFocusingLever_offsetZ = vLowerRail_h + vFocusingLever_h + 0.5;
+
+vFocusingThreadBlock_l = 12;
+vFocusingThreadBlock_w = 24;
+vFocusingThreadBlock_h = 14;
+vFocusingThreadBlock_offsetX = vFocusingLever_offsetX;
+vFocusingThreadBlock_offsetY = -vFocusingLever_w;
+vFocusingThreadBlock_offsetZ = 0;
+
+vFocusingThreadHole_d = 10.2;
+vFocusingThreadHole_h = vFocusingLever_l;
+vFocusingThreadHole_offsetX = vFocusingLever_offsetX;
+vFocusingThreadHole_offsetY = -vFocusingLever_w+(vFocusingThreadBlock_w/2);
+//vFocusingThreadHole_offsetZ = vFocusingThreadBlock_h/2;
+vFocusingThreadHole_offsetZ = 6;
+
+
+vEdgeCutoff = 5;
+vEdgeCutoff_h = vLowerRail_h+vMidSection_h+vUpperRail_h;
 
 
 difference(){
-    union(){
-        // left column
-        translate([vSliderColumn_offsetX, vSliderColumnLeft_offsetY, vSliderColumn_offsetZ])
-            cube([vSliderColumn_length, vSliderColumn_width, vSliderTotal_height]);
-            
-        // left column extension 
-        translate([vSliderColumnExt_offsetX, vSliderColumnExtLeft_offsetY, vSliderColumnExt_offsetZ])
-            cube([vSliderColumnExt_length, vSliderColumnExt_width, vSliderColumnExt_height]);
-            
-        // lower left dovetail 
-        translate([vLowerDovetail_offsetX, vLowerDovetailLeft_offsetY, vLowerDovetail_offsetZ])
-            rotate([0,0,-90])
-            roof(vLowerDovetail_width, vLowerDovetail_length, vLowerDovetail_height);
+union(){
+    // lower rail
+    difference(){
+        translate([vLowerRail_offsetX, vLowerRail_offsetY, vLowerRail_offsetZ])
+            roof(vLowerRail_l, vLowerRailOuter_w, vLowerRailOuter_w/2);
+        translate([vLowerRail_offsetX, vLowerRail_offsetY, vLowerRail_h])
+            cube([vLowerRail_l, vLowerRailOuter_w, vLowerRailOuter_w/2]);    
+    };
 
-        // upper left dovetail
-        translate([vUpperDovetail_offsetX, vUpperDovetailLeft_offsetY, vUpperDovetail_offsetZ])
-            rotate([180,0,-90])
-            roof(vUpperDovetail_width, vUpperDovetail_length, vUpperDovetail_height);
-
-        // right column
-        translate([vSliderColumn_offsetX, vSliderColumnRight_offsetY, vSliderColumn_offsetZ])
-            cube([vSliderColumn_length, vSliderColumn_width, vSliderTotal_height]);
+    // upper block
+    translate([vUpperBlock_offsetX, vUpperBlock_offsetY, vUpperBlock_offsetZ])
+            cube([vUpperBlock_l, vUpperBlock_w, vUpperBlock_h]);    
+    
+    // focusing lever
+    translate([vFocusingLever_offsetX, vFocusingLever_offsetY, vFocusingLever_offsetZ])
+        rotate([0, 90, 0])
+            wedge(vFocusingLever_h, -vFocusingLever_w+2, vFocusingLever_l);
+    
+    
+    // focusing lever thread block
+    intersection(){
+        translate([vFocusingThreadBlock_offsetX, vFocusingThreadBlock_offsetY, vFocusingThreadBlock_offsetZ])
+                cube([vFocusingThreadBlock_l, vFocusingThreadBlock_w, vFocusingThreadBlock_h]);
+        translate([vFocusingThreadHole_offsetX, vFocusingThreadHole_offsetY, vFocusingThreadHole_offsetZ])
+            rotate([0, 90, 0])
+                cylinder(d=vFocusingThreadBlock_w, h=vFocusingThreadBlock_l);
             
-        // right column extension    
-        translate([vSliderColumnExt_offsetX, vSliderColumnExtRight_offsetY, vSliderColumnExt_offsetZ])
-            cube([vSliderColumnExt_length, vSliderColumnExt_width, vSliderColumnExt_height]);
-            
-        // lower right dovetail 
-        translate([vLowerDovetail_offsetX, vLowerDovetailRight_offsetY, vLowerDovetail_offsetZ])
-            rotate([0,0,-90])
-            roof(vLowerDovetail_width, vLowerDovetail_length, vLowerDovetail_height);
-         
-         // upper right dovetail
-         translate([vUpperDovetail_offsetX, vUpperDovetailRight_offsetY, vUpperDovetail_offsetZ])
-            rotate([180,0,-90])
-            roof(vUpperDovetail_width, vUpperDovetail_length, vUpperDovetail_height);
-         
-        // back stabilizer
-        translate([vSliderStabilizerBack_offsetX, vSliderStabilizer_offsetY, vSliderStabilizer_offsetZ])
-            cube([vSliderStabilizerBack_length, vSliderStabilizer_width, vSliderStabilizer_height]);
-            
-        // front stabilizer    
-        translate([vSliderStabilizerFront_offsetX, vSliderStabilizer_offsetY, vSliderStabilizer_offsetZ])
-            cube([vSliderStabilizer_length, vSliderStabilizer_width, vSliderStabilizer_height]);
+    };
+        
+    // lower rail
+    translate([0,0,vLowerRail_h+vUpperBlock_h])
+        mirror([0,0,1]){
+            difference(){
+                translate([vUpperRail_offsetX, vUpperRail_offsetY, vUpperRail_offsetZ])
+                    roof(vUpperRail_l, vUpperRailOuter_w, vUpperRailOuter_w/2);
+                translate([vUpperRail_offsetX, vUpperRail_offsetY, vUpperRail_h])
+                    cube([vUpperRail_l, vUpperRailOuter_w, vUpperRailOuter_w/2]);    
+            };
         };
-    
-    // slider upper cutout
-    translate([vSliderUpperCutout_offsetX, vSliderUpperCutout_offsetY, vSliderUpperCutout_offsetZ])
-        cube([vSliderUpperCutout_length, vSliderUpperCutout_width, vSliderUpperCutout_height]);
-        
-    // lens hole
-    translate([vLensHole_offsetX, vLensHole_offsetY, vLensHole_offsetZ])
-        cylinder(d=vLensHole_diameter, h=vLensHole_height);
-   
-    // threadblock holes
-    // left    
-    translate([vThreadBlockHole_offsetX, vThreadBlockHole_offsetY, vThreadBlockHole_offsetZ])
-        cylinder(d=vThreadBlockHole_diameter, h=vThreadBlockHole_height);
-    
-    // left bevel    
-    translate([vThreadBlockBevel_offsetX, vThreadBlockBevel_offsetY, vThreadBlockBevel_offsetZ])
-        cylinder(h=vThreadBlockBevel_height, d1=vThreadBlockBevel_d1, d2=vThreadBlockBevel_d2);
-    
-    // right
-    translate([vThreadBlockHole_offsetX, -vThreadBlockHole_offsetY, vThreadBlockHole_offsetZ])
-        cylinder(d=vThreadBlockHole_diameter, h=vThreadBlockHole_height);
-    
-    // right bevel
-    translate([vThreadBlockBevel_offsetX, -vThreadBlockBevel_offsetY, vThreadBlockBevel_offsetZ])
-        cylinder(h=vThreadBlockBevel_height, d1=vThreadBlockBevel_d1, d2=vThreadBlockBevel_d2);
-        
-        
-        
-    // stop indents
-    translate([vStopIndentCutout1_offsetX, vStopIndentCutout_offsetY, vStopIndentCutout_offsetZ])
-        cube([vStopIndentCutout_length, vStopIndentCutout_width, vStopIndentCutout_height]);
-        
-    // stop indents
-    translate([vStopIndentCutout2_offsetX, vStopIndentCutout_offsetY, vStopIndentCutout_offsetZ])
-        cube([vStopIndentCutout_length, vStopIndentCutout_width, vStopIndentCutout_height]);
-    
-    // stop indents
-    translate([vStopIndentCutout3_offsetX, vStopIndentCutout_offsetY, vStopIndentCutout_offsetZ])
-        cube([vStopIndentCutout_length, vStopIndentCutout_width, vStopIndentCutout_height]);
-        
-    // stop indents
-    translate([vStopIndentCutout4_offsetX, vStopIndentCutout_offsetY, vStopIndentCutout_offsetZ])
-        cube([vStopIndentCutout_length, vStopIndentCutout_width, vStopIndentCutout_height]);
-    
-    // stop indents
-    translate([vStopIndentCutout5_offsetX, vStopIndentCutout_offsetY, vStopIndentCutout_offsetZ])
-        cube([vStopIndentCutout_length, vStopIndentCutout_width, vStopIndentCutout_height]);
 
+    };
+    
+    // mid cutout
+    translate([vMidCutout_offsetX, vMidCutout_offsetY, vMidCutout_offsetZ])
+        cube([vMidCutout_l, vMidCutout_w, vMidCutout_h]); 
+ 
+    // upper cutout
+    translate([vUpperCutout_offsetX, vUpperCutout_offsetY, vUpperCutout_offsetZ])
+        cube([vUpperCutout_l, vUpperCutout_w, vUpperCutout_h]); 
+    for (i = [0:5]){ 
+    // lens cutout
+    translate([vLensCutout_offsetX+(i*2), vLensCutout_offsetY, vLensCutout_offsetZ])
+        cylinder(d=vLensCutout_d, h=vLensCutout_h);
+    };
+    
+    // stop indents
+    for (i=[1:vStopIndentCount]){
+    translate([i*vStopIndent_offsetX, vStopIndent_offsetY, vStopIndent_offsetZ])
+        cube([vStopIndent_l, vStopIndent_w, vStopIndent_h]);        
+    };
+
+    // focusing thread hole
+    translate([vFocusingThreadHole_offsetX, vFocusingThreadHole_offsetY, vFocusingThreadHole_offsetZ])
+        rotate([0, 90, 0])
+            cylinder(d=vFocusingThreadHole_d, h=vFocusingThreadHole_h);
+    
+    // edge cutoff
+    // back left
+    translate([0, -vLowerRail_offsetY, 0])
+        rotate([0, -90, 0])
+            wedge(vEdgeCutoff_h, -vEdgeCutoff, -vEdgeCutoff);
+    // lower front left
+    translate([vLowerRail_l, -vLowerRail_offsetY, 0])
+        rotate([0, -90, 0])
+            wedge(vEdgeCutoff_h, -vEdgeCutoff, vEdgeCutoff);
+    // upper front left
+    translate([vUpperRail_l, -vLowerRail_offsetY, vLowerRail_h])
+        rotate([0, -90, 0])
+            wedge(vEdgeCutoff_h, -vEdgeCutoff, vEdgeCutoff);
+    // back right
+    translate([0, vLowerRail_offsetY, 0])
+        rotate([0, -90, 0])
+            wedge(vEdgeCutoff_h, vEdgeCutoff, -vEdgeCutoff);
+    // lower front right
+    translate([vLowerRail_l, vLowerRail_offsetY, 0])
+        rotate([0, -90, 0])
+            wedge(vEdgeCutoff_h, vEdgeCutoff, vEdgeCutoff);
+    // upper front right
+    translate([vUpperRail_l, vLowerRail_offsetY, vLowerRail_h])
+        rotate([0, -90, 0])
+            wedge(vEdgeCutoff_h, vEdgeCutoff, vEdgeCutoff);
+    
 };
