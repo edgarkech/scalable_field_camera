@@ -1,18 +1,14 @@
 
 $fn=60;
 
-vFocusWheel_d = 20;
-vFocusWheel_h = 14.8;
-vThread_d = 5;
+vFocusWheel_d = 24;
+vFocusWheel_h = 26.3;
+vThread_d = 6;
 vThread_h = vFocusWheel_h;
 
-vThreadNut_d = 7;
-vThreadNut_h = 6;
-vThreadNut_offsetZ = 2;
-
-vStopNut_d = 10.2;
-vStopNut_h = 6;
-vStopNut_offsetZ = vThreadNut_offsetZ+vThreadNut_h;
+vThreadNut_d = 10.2;
+vThreadNut_h = 12;
+vThreadNut_offsetZ = 0;
 
 vEdgecut = 1;
 
@@ -32,8 +28,9 @@ vUpperSegment_h = vEdgecut;
 vUpperSegment_offsetZ = vLowerSegment_h+vMidSegment_h;
 
 vLockingScrewHole_d = 3;
-vLockingScrewHole_h = vFocusWheel_d/2;
-vLockingScrewHole_offsetZ = vThreadNut_offsetZ+vThreadNut_h+vStopNut_h/2;
+vLockingScrewHole_h = vFocusWheel_d;
+vLockingScrewHole_offsetX = -vFocusWheel_d/2;
+vLockingScrewHole_offsetZ = vThreadNut_h/2;
 
 vCutout_l = vFocusWheel_h;
 vCutout_w = 4;
@@ -114,12 +111,10 @@ difference(){
     translate([0, 0, vThreadNut_offsetZ])
         cylinder(d=vThreadNut_d, h=vThreadNut_h);
     
-    // stop nut hole
-    translate([0, 0, vStopNut_offsetZ])
-        cylinder(d=vStopNut_d, h=vStopNut_h+3);
+   
     
     // locking screw hole
-    translate([0, 0, vLockingScrewHole_offsetZ])
+    translate([vLockingScrewHole_offsetX, 0, vLockingScrewHole_offsetZ])
         rotate([0,90, 0])
             cylinder(d=vLockingScrewHole_d, h=vLockingScrewHole_h);
     
