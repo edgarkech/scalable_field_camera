@@ -77,7 +77,7 @@ module countersunk_screw(vScrew_d, vScrew_l){
 vDovetailTolerance_width = 0.2;
 vDovetailTolerance_height = 0.2;
 
-vTotalPlate_length = 140;
+vTotalPlate_length = 135;
 vTotalPlate_height = 12;
 
 vDovetail_length = vTotalPlate_length;
@@ -90,7 +90,7 @@ vDovetail_offsetZ = 0;
 
 vDovetailEdgeCutoff = 3;
 
-vArca_length = 120;
+vArca_length = vTotalPlate_length-20;
 vArca_width = 39;
 vArca_height = 7;
 vArcaBase_cutout = 3;
@@ -104,7 +104,7 @@ vArcaEdgeCutoff = 3;
 
 vLockingCylinder_d1 = 20;
 vLockingCylinder_d2 = 10;
-vLockingCylinder_h = 8;
+vLockingCylinder_h = 7;
 vLockingCylinder_offsetX = vTotalPlate_length-10;
 vLockingCylinder_offsetY = 0;
 vLockingCylinder_offsetZ = 0;

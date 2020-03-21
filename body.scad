@@ -1,58 +1,9 @@
 // some variables
 $fn = 60; // we are using 60 fragments for cylinders and similar objects
 
-module roof(l, w, h){
-    polyhedron(
-        points=[
-            [0,0,0],
-            [l,0,0],
-            [l,w,0],
-            [0,w,0],
-            [0,w/2,h],
-            [l,w/2,h]
-            ],
-        faces=[
-            [0,1,2,3],
-            [0,4,1],
-            [1,4,5,2],
-            [2,5,3],
-            [3,5,4,0]
-            ]
-            );
-    };
+// some modules such as hex, countersunk screws, roof, wedge are available in a module file
+use <modules.scad>;
 
-module wedge(l, w, h) {
-    polyhedron(
-            points=[
-                [0,0,0],
-                [l,0,0],
-                [l,w,0],
-                [0,w,0],
-                [0,0,h],
-                [l,0,h]
-            ],
-            faces=[
-                [0,3,2,1],
-                [0,1,5,4],
-                [1,2,5],
-                [2,3,4,5],
-                [3,0,4]
-            ]
-    );
-   };    
-module tube(d1, d2, h) {
-    difference() {
-        cylinder(d=d1, h=h);
-        cylinder(d=d2, h=h);
-        };
-    };
-
-module countersunk_screw(vScrew_d, vScrew_l){
-    union(){
-    cylinder(d=vScrew_d, h= vScrew_l);
-    cylinder(d1=vScrew_d*2, h=vScrew_d);
-    };
-};
 
 // variables
 
@@ -145,7 +96,6 @@ vBackPlateRailScrewHole_offsetYi = 75;
 vBackPlateRailScrewHole_offsetYa = 65;
 vBackPlateScrewHole_offsetZ = 0;
 
-
 // we will use a raw cylinder with 4 fragments for the cutout, so we have to calculate the diameters
 vBellowsFrameCutoutLower_d = sqrt(2*pow(vBellowsFrameLowerLength,2));
 vBellowsFrameCutoutUpper_d = sqrt(2*pow(vBellowsFrameUpperLength,2));
@@ -184,8 +134,6 @@ vHingeWallCutout_offsetX = vHinge_offsetX;
 vHingeWallCutout_offsetY = vSideWallLeft_offsetY;
 vHingeWallCutout_offsetZ = vSideWall_h;
 
-
-
 vStabilizerBlock_l = vBottomWall_h;
 vStabilizerBlock_w = 100;
 vStabilizerBlock_h = 12;
@@ -194,7 +142,6 @@ vStabilizerBlock_offsetY = -vStabilizerBlock_w/2;
 vStabilizerBlock_offsetZ = 0;
 
 vDovetailTolerance = 0.2;
-
 
 vDovetail_l = vBottomWall_h;
 vDovetailOuter_w = 50+vDovetailTolerance;
@@ -215,9 +162,6 @@ vLockingHole_h = 8;
 vLockingHole_offsetX = vDovetail_offsetX;
 vLockingHole_offsetY = 0;
 vLockingHole_offsetZ = 10;
-
-
-
 
 // only as helper
 //cylinder(d=160, h=20);

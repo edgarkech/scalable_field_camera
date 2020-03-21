@@ -80,21 +80,21 @@ vDovetailTolerance_height = 0.2;
 // Screwholes for the stabilizing lid
 vLidHole_d = 3;
 vLidHole_h = 8;
-vLidHoleCount_x = 5;
-vLidHoleDist_x = 25;
+vLidHoleCount_x = 4;
+vLidHoleDist_x = 35;
 vLidHoleCount_y = 2;
 vLidHoleDist_y = 60;
 
-vLid_length = (vLidHoleCount_x-1)*vLidHoleDist_x+2*20;
+vLid_length = (vLidHoleCount_x-1)*vLidHoleDist_x+30;
 vLid_width  = vLidHoleDist_y+30;
-vLidBase_height = 3;
-vLidTotal_height = 8;
+vLidBase_height = 2;
+vLidTotal_height = 7;
 vLid_offsetX = 0;
 vLid_offsetY = -vLid_width/2;
 vLid_offsetZ = 0;
 
 vLidHoleRow_length = (vLidHoleCount_x-1)*vLidHoleDist_x;
-vLidHoleRow_offsetX = 20;
+vLidHoleRow_offsetX = 22.5;
 vLidHoleRow_offsetY = vLidHoleDist_y/2;
 vLidHoleRow_offsetZ = vLidTotal_height; 
 

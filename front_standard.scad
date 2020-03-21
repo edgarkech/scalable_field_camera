@@ -22,14 +22,14 @@ vFrontStandartBasePlate_offsetX = 0;
 vFrontStandartBasePlate_offsetY = 0;
 vFrontStandartBasePlate_offsetZ = 0;
 
-vCentralScrewHole_d = 6+2*vTolerance_width;
+vCentralScrewHole_d = 5+2*vTolerance_width;
 vCentralScrewHole_h = vFrontStandartBasePlate_height;
 vCentralScrewHole_offsetX = 0;
 vCentralScrewHole_offsetY = 0;
 vCentralScrewHole_offsetZ = 0;
 
 vFrontStandartTiltPlate_length = 25;
-vFrontStandartTiltPlate_width = 120;
+vFrontStandartTiltPlate_width = 130;
 vFrontStandartTiltPlate_height = 10;
 
 vFrontStandartTiltPlate_offsetX = -vFrontStandartTiltPlate_length/2;
@@ -41,8 +41,8 @@ vTiltDoveTail_d2 = vTiltDoveTail_d1+(2*vDovetail_length)+(2*vTolerance_width);
 vTiltDovetail_h = vDovetail_height;
 
 vUprightHolder_length = vFrontStandartTiltPlate_length;
-vUprightHolder_width = 10;
-vUprightHolder_height = 15;
+vUprightHolder_width = 15;
+vUprightHolder_height = 10;
 vUprightHolderLeft_offsetX = vFrontStandartTiltPlate_offsetX;
 vUprightHolderLeft_offsetY = -vFrontStandartTiltPlate_offsetY;
 vUprightHolderRight_offsetX = -vFrontStandartTiltPlate_offsetX;
@@ -51,27 +51,31 @@ vUprightHolder_offsetZ = vFrontStandartTiltPlate_height;
 
 vUpright_length = vFrontStandartTiltPlate_length;
 vUpright_width = 5;
-vUpright_height = 140;
-vUprightSlotCutout_length = 5+vTolerance_width;
+vUpright_height = 120;
+vUprightSlotCutout_length = 8+vTolerance_width;
 vUprightSlotCutout_width = vFrontStandartTiltPlate_width+(2*vUpright_width);
-vUprightSlotCutout_height = 60;
+vUprightSlotCutout_height = 90;
 vUprightLeft_offsetX = vFrontStandartTiltPlate_offsetX;
 vUprightRight_offsetX = vFrontStandartTiltPlate_offsetX;
 vUprightLeft_offsetY = vFrontStandartTiltPlate_width/2;
 vUprightRight_offsetY = -(vFrontStandartTiltPlate_width/2)-vUpright_width;
 vUprightSlotCutout_offsetX = -vUprightSlotCutout_length/2;
 vUprightSlotCutout_offsetY = -vUprightSlotCutout_width/2;
-vUprightSlotCutout_offsetZ = 70;
+vUprightSlotCutout_offsetZ = 25;
 
 vPullingLeverCutout_length = 5;
-vPullingLeverCutout_width = 60;
+vPullingLeverCutout_width = 86;
 vPullingLeverCutout_height = vFrontStandartBasePlate_height;
 vPullingLeverCutout_offsetX = -vFrontStandartTiltPlate_offsetX-vPullingLeverCutout_length;
 vPullingLeverCutout_offsetY = -vPullingLeverCutout_width/2;
 vPullingLeverCutout_offsetZ = 0;
 
-
-
+vEdgeCutoff_l = vFrontStandartTiltPlate_length;
+vEdgeCutoff_w = 10;
+vEdgeCutoff_h = 10; 
+vEdgeCutoff_offsetX = vEdgeCutoff_l/2;
+vEdgeCutoff_offsetY = -(vFrontStandartTiltPlate_width+10)/2;
+vEdgeCutoff_offsetZ = 0;
 
 /*
 vUprightScrewHole_diameter = 2;
@@ -197,6 +201,13 @@ difference(){
     translate([-vFrontStandartTiltPlate_offsetX, -vPullingLeverCutout_offsetY, vPullingLeverCutout_offsetZ])
         cylinder(r=vPullingLeverCutout_length, h=vPullingLeverCutout_height); 
     
+    // cut the lower edges
+    translate([vEdgeCutoff_offsetX, vEdgeCutoff_offsetY, vEdgeCutoff_offsetZ])
+        rotate([0, 270, 0])
+            wedge(vEdgeCutoff_w, vEdgeCutoff_h, vEdgeCutoff_l);
+    translate([vEdgeCutoff_offsetX, -vEdgeCutoff_offsetY, vEdgeCutoff_offsetZ])
+        rotate([0, 270, 0])
+            wedge(vEdgeCutoff_w, -vEdgeCutoff_h, vEdgeCutoff_l);
     /*
     // screw holes for the uprights
     translate([-vUprightScrewHole_offsetX, vUprightScrewHole_offsetY, vUprightScrewHole_offsetZ])

@@ -63,7 +63,7 @@ vLeverPlateScrewHole_offsetZ = 0;
 
 
 vLeverCutout_length = 10;
-vLeverCutout_width = 50;
+vLeverCutout_width = 80;
 vLeverCutout_height = vFrontStandartBasePlate_height;
 vLeverCutout_offsetX = (vFrontStandartBasePlate_length/2)-vLeverCutout_length;
 vLeverCutout_offsetY = -vLeverCutout_width/2;
