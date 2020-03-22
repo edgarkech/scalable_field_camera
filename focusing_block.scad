@@ -63,7 +63,7 @@ module countersunk_screw(vScrew_d, vScrew_l){
 
 vFocusingBlock_l = 50;
 vFocusingBlock_w = 30;
-vFocusingBlock_h = 14;
+vFocusingBlock_h = 10;
 vFocusingBlock_offsetX = 0;
 vFocusingBlock_offsetY = -80; // we are shifting to -Y so we can use the same measurements as on the lid 
 vFocusingBlock_offsetZ = 0;
@@ -89,7 +89,7 @@ vBackEdgeCutout_offsetY = vFocusingBlock_offsetY+vFocusingBlock_w;
 vBackEdgeCutout_offsetZ = 0;
 
 vFocusingRodHole_d = 6.2;
-vFocusingRodHole_h = vFocusingBlock_l;
+vFocusingRodHole_h = vFocusingBlock_l+vFrontWallExtension_l;
 vFocusingRodHole_offsetX = 0;
 vFocusingRodHole_offsetY = -63;
 //vFocusingRodHole_offsetZ = vFocusingBlock_h/2;
