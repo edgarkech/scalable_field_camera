@@ -8,7 +8,7 @@ use <modules.scad>;
 // variables
 
 vClampBase_l = 15;
-vClampBase_w = 70;
+vClampBase_w = 65;
 vClampBase_h = 3;
 vClampBase_offsetX = 0;
 vClampBase_offsetY = -vClampBase_w/2;
@@ -27,7 +27,7 @@ vScrewHole_offsetX = 5;
 vScrewHole_offsetY = 25;
 vScrewHole_offsetZ = 0;
 
-vEdgeCut = 5;
+vEdgeCut = 4;
 vEdgeCut_h = vClampBase_h;
 vEdgeCut_offsetX1 = 0;
 vEdgeCut_offsetX2 = vClampBase_l;

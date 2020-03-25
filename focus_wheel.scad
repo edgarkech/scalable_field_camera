@@ -2,12 +2,12 @@
 $fn=60;
 
 vFocusWheel_d = 24;
-vFocusWheel_h = 26.3;
-vThread_d = 6;
+vFocusWheel_h = 12.7;
+vThread_d = 6.2;
 vThread_h = vFocusWheel_h;
 
 vThreadNut_d = 10.2;
-vThreadNut_h = 12;
+vThreadNut_h = 10.7;
 vThreadNut_offsetZ = 0;
 
 vEdgecut = 1;
@@ -30,7 +30,7 @@ vUpperSegment_offsetZ = vLowerSegment_h+vMidSegment_h;
 vLockingScrewHole_d = 3;
 vLockingScrewHole_h = vFocusWheel_d;
 vLockingScrewHole_offsetX = -vFocusWheel_d/2;
-vLockingScrewHole_offsetZ = vThreadNut_h/2;
+vLockingScrewHole_offsetZ = 4;
 
 vCutout_l = vFocusWheel_h;
 vCutout_w = 4;
