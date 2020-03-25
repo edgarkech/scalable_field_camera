@@ -40,7 +40,7 @@ vRail_offsetX = 0;
 vRail_offsetY = -vRail_w/2;
 vRail_offsetZ = -vRail_h;
 
-vTiltAxis_d = 10;
+vTiltAxis_d = 10-vTolerance;
 vTiltAxis_h = vDovetailBlock_h;
 vTiltAxis_offsetX = vTiltHeight;
 vTiltAxis_offsetY = 0;
@@ -59,14 +59,14 @@ vScrewHole_offsetX = vNutHole_offsetX;
 vScrewHole_offsetY = vNutHole_offsetY;
 vScrewHole_offsetZ = vRail_offsetZ;
 
-vTiltSlotPlate_d = 12;
+vTiltSlotPlate_d = 10;
 vTiltSlot_d = 5+vTolerance;
 vTiltSlot_h = vTiltPlate_h;
 vTiltSlot_offsetX = vTiltHeight+55;
 vTiltSlot_offsetY = 0;
 vTiltSlot_offsetZ = 0;
-vTiltAngleMinus = -7;
-vTiltAnglePlus = 7;
+vTiltAngleMinus = -6;
+vTiltAnglePlus = 6;
 
 vEdgeCut = (vTiltPlate_w-vRail_w)/2;
 vEdgeCut_h = vTiltPlate_h;

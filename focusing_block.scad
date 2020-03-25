@@ -1,59 +1,8 @@
 // some variables
 $fn = 60; // we are using 60 fragments for cylinders and similar objects
 
-module roof(l, w, h){
-    polyhedron(
-        points=[
-            [0,0,0],
-            [l,0,0],
-            [l,w,0],
-            [0,w,0],
-            [0,w/2,h],
-            [l,w/2,h]
-            ],
-        faces=[
-            [0,1,2,3],
-            [0,4,1],
-            [1,4,5,2],
-            [2,5,3],
-            [3,5,4,0]
-            ]
-            );
-    };
-
-module wedge(l, w, h) {
-    polyhedron(
-            points=[
-                [0,0,0],
-                [l,0,0],
-                [l,w,0],
-                [0,w,0],
-                [0,0,h],
-                [l,0,h]
-            ],
-            faces=[
-                [0,3,2,1],
-                [0,1,5,4],
-                [1,2,5],
-                [2,3,4,5],
-                [3,0,4]
-            ]
-    );
-   };    
-
-module tube(d1, d2, h) {
-    difference() {
-        cylinder(d=d1, h=h);
-        cylinder(d=d2, h=h);
-        };
-    };
-
-module countersunk_screw(vScrew_d, vScrew_l){
-    union(){
-    cylinder(d=vScrew_d, h= vScrew_l);
-    cylinder(d1=vScrew_d*2, h=vScrew_d);
-    };
-};
+// some modules such as hex, countersunk screws, roof, wedge are available in a module file
+use <modules.scad>;
 
 
 // focusing rod axis is set to -63mm to the lid center
@@ -61,7 +10,9 @@ module countersunk_screw(vScrew_d, vScrew_l){
 // inner total width is 160mm
 
 
-vFocusingBlock_l = 50;
+vTolerance = 0.2;
+
+vFocusingBlock_l = 30;
 vFocusingBlock_w = 30;
 vFocusingBlock_h = 10;
 vFocusingBlock_offsetX = 0;
@@ -75,7 +26,7 @@ vFrontWallExtension_offsetX = vFocusingBlock_l;
 vFrontWallExtension_offsetY = vFocusingBlock_offsetY + vFocusingBlock_w - vFrontWallExtension_w;
 vFrontWallExtension_offsetZ = 0;
 
-vFrontEdgeCutout_d = 10.2;
+vFrontEdgeCutout_d = 10+vTolerance;
 vFrontEdgeCutout_h = vFocusingBlock_h;
 vFrontEdgeCutout_offsetX = vFocusingBlock_l;
 vFrontEdgeCutout_offsetY = vFocusingBlock_offsetY;
@@ -88,16 +39,16 @@ vBackEdgeCutout_offsetX = 0;
 vBackEdgeCutout_offsetY = vFocusingBlock_offsetY+vFocusingBlock_w;
 vBackEdgeCutout_offsetZ = 0;
 
-vFocusingRodHole_d = 6.2;
+vFocusingRodHole_d = 6+vTolerance;
 vFocusingRodHole_h = vFocusingBlock_l+vFrontWallExtension_l;
 vFocusingRodHole_offsetX = 0;
-vFocusingRodHole_offsetY = -63;
+vFocusingRodHole_offsetY = -68;
 //vFocusingRodHole_offsetZ = vFocusingBlock_h/2;
 vFocusingRodHole_offsetZ = 6;
 
 vFocusingKnobCutout_d = 25;
-vFocusingKnobCutout_h = 30.2;
-vFocusingKnob_offsetX = (vFocusingBlock_l-vFocusingKnobCutout_h)/2;
+vFocusingKnobCutout_h = 15+vTolerance;
+vFocusingKnob_offsetX = 10-vTolerance;
 vFocusingKnob_offsetY = vFocusingRodHole_offsetY;
 vFocusingKnob_offsetZ = vFocusingRodHole_offsetZ;
 
@@ -118,8 +69,8 @@ vRightUpperEdgeCutout_offsetZ = vFocusingBlock_h;
 vScrewHole_d = 2;
 vScrewHole_h = 10;
 vScrewHole1_offsetX = 5;
-vScrewHole2_offsetX = 45;
-vScrewHole3_offsetX = 45;
+vScrewHole2_offsetX = vFocusingBlock_l;
+vScrewHole3_offsetX = vFocusingBlock_l;
 vScrewHole1_offsetY = vFocusingRodHole_offsetY-8;
 vScrewHole2_offsetY = vFocusingRodHole_offsetY-8;
 vScrewHole3_offsetY = vFocusingRodHole_offsetY+8;
@@ -161,8 +112,8 @@ vScrewHole3_offsetZ = 0;
      // screw holes
      translate([vScrewHole1_offsetX, vScrewHole1_offsetY, vScrewHole1_offsetZ])
         cylinder(d=vScrewHole_d, h=vScrewHole_h);
-    translate([vScrewHole2_offsetX, vScrewHole2_offsetY, vScrewHole2_offsetZ])
-        cylinder(d=vScrewHole_d, h=vScrewHole_h);
+    /*translate([vScrewHole2_offsetX, vScrewHole2_offsetY, vScrewHole2_offsetZ])
+        cylinder(d=vScrewHole_d, h=vScrewHole_h);*/
     translate([vScrewHole3_offsetX, vScrewHole3_offsetY, vScrewHole3_offsetZ])
         cylinder(d=vScrewHole_d, h=vScrewHole_h);
  }

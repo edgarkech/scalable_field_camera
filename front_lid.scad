@@ -78,27 +78,28 @@ vHingeCutout_offsetZ = vFrontLid_wall;
 vLensIndent_d2 = 70;
 vLensIndent_d1 = vLensIndent_d2-(2*vFrontLid_wall);
 vLensIndent_h = vFrontLid_wall;
-vLensIndent_offsetX = 5;
+vLensIndent_offsetX = 0;
 vLensIndent_offsetY = 0;
 vLensIndent_offsetZ = 1;
 
+vBackThreadBlock_d = 12;
 vBackThreadBlock_l = 10;
-vBackThreadBlock_w = 24;
-vBackThreadBlock_h = 12;
+vBackThreadBlock_w = 30;
+vBackThreadBlock_h = vFrontLid_wall;
 vBackThreadBlock_offsetX = vFrontLidInner_offsetX+vFrontLid_wall;
-vBackThreadBlock_offsetY = -75;
+vBackThreadBlock_offsetY = -vFrontLidInner_w/2;
 vBackThreadBlock_offsetZ = vFrontLid_wall;
 
 vFocusingRodHole_d = 6.2;
 vFocusingRodHole_h = vFrontLidOuter_l;
 vFocusingRodHole_offsetX = vBackThreadBlock_offsetX+5;
-vFocusingRodHole_offsetY = -63;
-vFocusingRodHole_offsetZ = vBackThreadBlock_h/2+vFrontLid_wall;
+vFocusingRodHole_offsetY = -68;
+vFocusingRodHole_offsetZ = 6+vFrontLid_wall;
 
 vFocusingKnobCutout_d = 25;
-vFocusingKnobCutout_l = 25;
-vFocusingKnobCutout_offsetX = -vFrontLidOuter_offsetX-vFocusingKnobCutout_l-15;
-vFocusingKnobCutout_offsetY = -63;
+vFocusingKnobCutout_l = 15;
+vFocusingKnobCutout_offsetX = -vFrontLidOuter_offsetX-vFocusingKnobCutout_l-10;
+vFocusingKnobCutout_offsetY = -68;
 vFocusingKnobCutout_offsetZ = vBackThreadBlock_h/2+vFrontLid_wall;
 
 vFocusingBlockScrew_d = 3;
@@ -251,14 +252,13 @@ difference(){
                 cylinder(r=vHingeTubeOuter_r, h=vHingeTubeOuter_h);
                 
         // back thread block
-        intersection(){
         translate([vBackThreadBlock_offsetX, vBackThreadBlock_offsetY, vBackThreadBlock_offsetZ])
             cube([vBackThreadBlock_l, vBackThreadBlock_w, vBackThreadBlock_h]);
         
         translate([vBackThreadBlock_offsetX, vFocusingRodHole_offsetY, vFocusingRodHole_offsetZ])
             rotate([0, 90, 0])
-                cylinder(d=vBackThreadBlock_w, h=vBackThreadBlock_l);    
-        };
+                cylinder(d=vBackThreadBlock_d, h=vBackThreadBlock_l);    
+       
         
     };
     
@@ -298,14 +298,21 @@ difference(){
         cube([vFocusingBlockCutout_l, vFocusingBlockCutout_w, vFocusingBlockCutout_h]);
     
     // screw holes for front focusing block
-    /*translate([vFocusingBlockScrew1_offsetX, vFocusingBlockScrew1_offsetY, vFocusingBlockScrew_offsetZ])
-        countersunk_screw(vFocusingBlockScrew_d, vFocusingBlockScrew_h);*/
+    /*
+    translate([vFocusingBlockScrew1_offsetX, vFocusingBlockScrew1_offsetY, vFocusingBlockScrew_offsetZ])
+        countersunk_screw(vFocusingBlockScrew_d, vFocusingBlockScrew_h);
+    */
+    
     translate([vFocusingBlockScrew2_offsetX, vFocusingBlockScrew2_offsetY, vFocusingBlockScrew_offsetZ])
         countersunk_screw(vFocusingBlockScrew_d, vFocusingBlockScrew_h);
+    
     translate([vFocusingBlockScrew3_offsetX, vFocusingBlockScrew3_offsetY, vFocusingBlockScrew_offsetZ])
         countersunk_screw(vFocusingBlockScrew_d, vFocusingBlockScrew_h);
+    
+    /*
     translate([vFocusingBlockScrew4_offsetX, vFocusingBlockScrew4_offsetY, vFocusingBlockScrew_offsetZ])
         countersunk_screw(vFocusingBlockScrew_d, vFocusingBlockScrew_h);
+    */
     
     // lens indent
     translate([vLensIndent_offsetX, vLensIndent_offsetY, vLensIndent_offsetZ])

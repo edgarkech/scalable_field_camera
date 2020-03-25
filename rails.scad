@@ -58,7 +58,8 @@ module countersunk_screw(vScrew_d, vScrew_l){
     
 
 
-vRailTolerance = 0.2;    
+vTolerance = 0.2;    
+vRailTolerance = 0.2;
     
 vLowerRail_l = 172;
 vLowerRailOuter_w = 90-vRailTolerance;
@@ -108,22 +109,22 @@ vLensCutout_offsetZ = 0;
 vStopIndent_l = 4;
 vStopIndent_w = vUpperCutout_w + (2*vStopIndent_l);
 vStopIndent_h = 5;
-vStopIndentDistance = 25;
+vStopIndentDistance = 20;
 vStopIndentCount = floor(vUpperRail_l/vStopIndentDistance);
-vStopIndent_offsetX = vStopIndentDistance;
+vStopIndent_offsetX = 15;
 vStopIndent_offsetY = -vStopIndent_w/2;
 vStopIndent_offsetZ = vLowerRail_h+vMidSection_h+vUpperRail_h-vStopIndent_h;
 
-vFocusingLever_l = 60;
-vFocusingLever_w = 75;
+vFocusingLever_l = 70;
+vFocusingLever_w = 75-vTolerance;
 vFocusingLever_h = vMidSection_h-1;
-vFocusingLever_offsetX = 20;
+vFocusingLever_offsetX = 16;
 vFocusingLever_offsetY = 0;
 vFocusingLever_offsetZ = vLowerRail_h + vFocusingLever_h + 0.5;
 
 vFocusingThreadBlock_l = 12;
-vFocusingThreadBlock_w = 24;
-vFocusingThreadBlock_h = 14;
+vFocusingThreadBlock_w = 20-vTolerance;
+vFocusingThreadBlock_h = 12;
 vFocusingThreadBlock_offsetX = vFocusingLever_offsetX;
 vFocusingThreadBlock_offsetY = -vFocusingLever_w;
 vFocusingThreadBlock_offsetZ = 0;
@@ -131,7 +132,7 @@ vFocusingThreadBlock_offsetZ = 0;
 vFocusingThreadHole_d = 10.2;
 vFocusingThreadHole_h = vFocusingLever_l;
 vFocusingThreadHole_offsetX = vFocusingLever_offsetX;
-vFocusingThreadHole_offsetY = -vFocusingLever_w+(vFocusingThreadBlock_w/2);
+vFocusingThreadHole_offsetY = -68;
 //vFocusingThreadHole_offsetZ = vFocusingThreadBlock_h/2;
 vFocusingThreadHole_offsetZ = 6;
 
@@ -161,14 +162,9 @@ union(){
     
     
     // focusing lever thread block
-    intersection(){
-        translate([vFocusingThreadBlock_offsetX, vFocusingThreadBlock_offsetY, vFocusingThreadBlock_offsetZ])
+    translate([vFocusingThreadBlock_offsetX, vFocusingThreadBlock_offsetY, vFocusingThreadBlock_offsetZ])
                 cube([vFocusingThreadBlock_l, vFocusingThreadBlock_w, vFocusingThreadBlock_h]);
-        translate([vFocusingThreadHole_offsetX, vFocusingThreadHole_offsetY, vFocusingThreadHole_offsetZ])
-            rotate([0, 90, 0])
-                cylinder(d=vFocusingThreadBlock_w, h=vFocusingThreadBlock_l);
-            
-    };
+        
         
     // lower rail
     translate([0,0,vLowerRail_h+vUpperBlock_h])
@@ -197,8 +193,8 @@ union(){
     };
     
     // stop indents
-    for (i=[1:vStopIndentCount]){
-    translate([i*vStopIndent_offsetX, vStopIndent_offsetY, vStopIndent_offsetZ])
+    for (i=[0:vStopIndentCount]){
+    translate([i*vStopIndentDistance+vStopIndent_offsetX, vStopIndent_offsetY, vStopIndent_offsetZ])
         cube([vStopIndent_l, vStopIndent_w, vStopIndent_h]);        
     };
 
