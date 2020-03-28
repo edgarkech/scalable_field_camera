@@ -5,11 +5,12 @@ All parts can be printed on any decent 3D printer with sufficient build volume
 - for 5x7" a build volume of at least 235x235x100mm is required
 - for 8x10" a build volume of at least 300x300x120mm is required
 
-print settings vary slightly for the different parts - if not explicitly mentioned use
+Print settings vary slightly for the different parts - if not explicitly mentioned use
 - 0.2mm layers or better
 - 4 walls
 - 4 bottom/top layers
 - when printing with PETG, use 15-20% more infill
+The tolerances between the parts are quite tight, so you have to sand them. I recommend sanding the dovetail parts with 400 wet sanding paper. 
 
 printed parts list
 - body, infill 30%, support for overhang angles over 60 degrees, support touching the build plate
