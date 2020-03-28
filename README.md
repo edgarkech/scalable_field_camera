@@ -17,7 +17,7 @@ Some technical goals:
 - rise of about 25-30mm with a normal lens
 - fall of about 10mm with a normal lens
 - front/back tilt of about 20 degrees
-- left/right tilt of about 10 degrees
+- left/right swing of about 10 degrees
 - left/right shift optionally (probably not with first release)
 - all movements on the front standard, no movements on the back
 - easy switchable from landscape to portrait format
