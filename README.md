@@ -48,3 +48,4 @@ to do / next steps
 - scaling up to 5x7" (means also designing bellows frames) 
 - re-evaluate 4x5" bellows options (different source, also requiring the addition of my "own" bellows frames) 
 - optimize slider locking mechanism
+- using the built-in github wiki for documentation
