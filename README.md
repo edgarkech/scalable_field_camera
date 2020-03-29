@@ -33,7 +33,7 @@ Early design decisions:
 - for the focusing rod I will use 6mm rods with 2mm pitch
 - due to some printing related problems (first layer), I will avoid printing small holes directly onto the printing bed (smaller than 5mm). If holes are required, they will have a little offset on the Z-axis of 0.5mm. This will allow a "clean" first layer with really good adhesion, while the holes are "pre-drilled" for most of their depth
 
-first findings after finishing the first functional prototype
+First findings after finishing the first functional prototype
 - PETG printing is somehow okay, but PLA is more rigid. Although I will do further tests with PETG, PLA stays the preferred material. This applies especially to the dovetails.
 - completely printed front standard with (more than) acceptable stability is possible
 - overall design seems to be a good starting point for further optimizations
