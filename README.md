@@ -1,6 +1,6 @@
 Scalable large format field camera - 4x5 - 5x7 - 8x10
 
-This is my attempt to create a scalable large format field camera.
+This is my attempt to create a scalable large format field camera design.
 
 Project goals:
 - of course a 3d printable and usable large format field camera in 4x5" format. The design should be scalable to 5x7" or even 8x10" by just changing a handful of variables.
