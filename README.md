@@ -39,11 +39,11 @@ First findings after finishing the first functional prototype
 - overall design seems to be a good starting point for further optimizations
 
 to do / next steps
-- real world testing 
+- more real world testing 
 - work around the current -7/+7 degrees tilt restriction (low priority)
-- mechanism to lock the front lid when folding
+- mechanism to lock the front lid when folding (work in progress)
 - foldable hood for the ground glass
-- OpenSCAD code clean up and refinement
+- OpenSCAD code clean up and refinement (work in progress)
 - releasing the OpenSCAD code and make this project real open source
 - scaling up to 5x7" (means also designing bellows frames) 
 - re-evaluate 4x5" bellows options (different source, also requiring the addition of my "own" bellows frames) 
