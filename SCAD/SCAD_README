@@ -1,0 +1,26 @@
+Some hints about my scripting and according conventions - as my OpenSCAD scripting is learning by doing, some constructs may look crude or even violate best practice.
+I am using some rules and conventions to make my scripting as consistent, readable and maintainable as possible.
+
+General logic for getting this design parametric:
+- baseconfig.scad holds very generic configuration values which are independent of the targeted camera format. But it also includes the format specific config file.
+- config_4x5.scad/config_5x7.scad/config_8x10.scad are the format specific configuration files. Here we set some basic, format specific variables from which we can derive lots of measures for our design
+- all other scad files are including the baseconfig.scad file to get all basic and format dependent variables for deriving the specific measures
+
+Naming conventions
+- all Variables are prefixed with "v"
+- all Variables are (somehow) speaking, eg. vFrontLidOuter_l
+- suffix _l is typically a measure in x direction
+- suffix _w is typically a measure in y direction
+- suffix _h is typically a measure in z direction
+- suffix _d/_d1/_d2 are typically a diameter variables
+- suffix _r/_r1/_r2 are typically radius variables 
+- suffix _offsetX/_offsetY/_offsetZ are offset variables to be used in translate() statements
+- every basic element has its own set of l/w/h/d/r variables
+- every element will have its own set of offset variables
+
+Other conventions
+- mathematic operations are done within the variables. 
+- most parts are symetric, so we center them on the X axis
+- try to keep the scripting readable
+
+ 
