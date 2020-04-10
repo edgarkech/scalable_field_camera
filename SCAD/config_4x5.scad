@@ -34,9 +34,9 @@ vLensboardLighttrap_d = 89;
 vLensboardLighttrap_h = 1+vTolerance;
 
 // bellows frame measures - the bellows frame design is derived from standardcameras.com
-vBellowsBackInner_l = 194;
+vBellowsBackInner_l = 144; //???? check
 vBellowsBackInner_w = vBellowsBackInner_l;
-vBellowsBackOuter_l = vBellowsBackInner_l+0.8;
+vBellowsBackOuter_l = vBellowsBackInner_l+1;
 vBellowsBackOuter_w = vBellowsBackOuter_l;
 
 vBellowsBackFrameOuter_l = 159;
@@ -55,18 +55,40 @@ vBellowsFrameScrewHole_h = 10;
 vBellowsFrameScrewHole_offsetXY = 70;
 vBellowsFrameScrewHole_offsetZ = vBellowsBackFrameOuter_h/2;
 
-
-
 // body dimensions
 vWall_strength = 5;
-vBodyOuter_l = 185;
-vBodyOuter_w = 170;
+vBodyOuter_l = 185; // make sure this is at least 4*vWall_strength larger than vBellowsBackFrameOuter_l!
+vBodyOuter_w = 170; // make sure this is at least 2*vWall_strength larger than vBellowsBackFrameOuter_l!
 vBodyOuter_h = 65;
 vBodyEdge_r = vWall_strength;
+
+// we will center our model on the Y axis and on the center of the bellows frame
+// at least for the 4x5 version, we have to do an asymetric offset of 2.5mm on the X-axis 
+vAsymOffsetX = -2.5;  
+
+// back plate
+vBackPlateLength = 160; // we will probably use about the same size as the bellows back frame
+vBackPlateStrength = vWall_strength;
+
+// hinges for front lid
+vHingeInnerDistance = 100;
+vHingeBaseWidth = 20;
+vHingeHole = 5;
+
+// lid lock measures
+vLidLockBase_d = 8;
+vLidLockHole_distance = 70;
 
 // rail dimensions
 vLowerRail_w = 90;
 vUpperRail_w = vLowerRail_w;
+
+// cutout for stop indents
+vStopIndent_l = 4;
+vStopIndent_h = 5;
+vStopIndentDistance = 25; // shorter than 25 is not necessary
+vStopIndent_offsetX = 20; // don't go shorter than 20 if you intend to use a 90mm lens!
+
 
 // for all dovetails we use a base width of 5mm and a base height of 5mm
 // we are applying tolerances to the inner AND outer part of a dovetail, in width and height
@@ -82,7 +104,20 @@ vFocusingKnob_h = 20;
 // stabilizer measures (just the outer measures of our stabilizer block, not the tripod slider)
 vStabilizerBase_l = 140;
 vStabilizerBase_w = 100;  
-vStabilizerBase_h = 8;
+vStabilizerBase_h = 7;
+vStabilizerDovetailBase_w = 50;
+// screw holes for the stabilizer
+vLidHoleCount_x = 5;
+vLidHoleDist_x = 35;
+vLidHoleCount_y = 2;
+vLidHoleDist_y = 60;
+
+
+// screw diameters, length is individually set
+vScrew1Hole_d = 3;
+vScrew1ThreadHole_d = 2.2;
+vScrew2Hole_d = 2;
+vScrew2ThreadHole_d = 1.4;
 
 
  
