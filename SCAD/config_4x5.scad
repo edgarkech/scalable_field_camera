@@ -16,12 +16,13 @@ vLightTrap_l = 2; // M2
 vLightTrap_w = vCassette_w;
 vLightTrap_h = 1.5; // M1
 vLightTrap_offsetX = 141; // G max
-vFilmWindow_l = 119;
-vFilmWindow_w = 100;
+vFilmWindow_l = 121;
+vFilmWindow_w = 101;
 vFilmWindow_offsetX = 16;
 vGroundGlass_offsetZ = 5;
 
-// Graflok?
+// Graflok
+vGraflok_h = 6; // this is not the official measurement, just measured from a camera 
 
 // lens board measures (we are using Wista/Technika-style lensboards)
 vLensboard_l = 100;

@@ -21,7 +21,8 @@ vFilmWindow_w = 126;
 vFilmWindow_offsetX = 18;
 vGroundGlass_offsetZ = 5.8;
 
-// Graflok?
+// Graflok - although 5x7 normally doesn't have Graflok clamps, but we use this measurement on the back plate
+vGraflok_h = 6; // this is not the official measurement, just measured from a camera 
 
 // lens board measures (we are using Wista/Technika-style lensboards)
 vLensboard_l = 100;
