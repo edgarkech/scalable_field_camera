@@ -1,1 +1,53 @@
-We put our format specific STL files in here, so we get a complete set of STL files for building a camera in the specified format 
+We put our format specific STL files in here, so we get a complete set of STL files for building a camera in the specified format
+
+Printed parts
+
+All parts can be printed on any decent 3D printer with sufficient build volume 
+- for 4x5" a smaller printer with about 190x190x100mm build volume is sufficient
+
+Print settings vary slightly for the different parts - if not explicitly mentioned use
+- 0.2mm layers or better
+- 4 walls
+- 4 bottom/top layers
+- when printing with PETG, use at least 15-20% more infill as hinted below, below numbers are for PLA
+The tolerances between the parts are quite tight, so you have to sand them. I recommend sanding the dovetail parts with 400 wet sanding paper. 
+
+printed parts list
+- body, infill 30%, support for overhang angles over 60 degrees, support touching the build plate
+- front lid, infill 30%, no supports
+- front lid dovetail, infill 30%, no supports
+- focusing block, infill 100%, no supports
+- focusing wheel, infill 100%, no supports
+- back plate, 30% infill, no supports
+- locking rails (2x), infill 100%, no supports
+- locking levers (2x), infill 100%, no supports
+- rails, min 40% infill, support for overhang angles over 60 degrees
+- slider, min 50% infill, no supports
+- front standard, min 50% infill, support for overhang angles over 80 degrees, support everywhere
+- front standard tilt plates (2x) min 50% infill, support for overhang angles over 80 degrees, support touching the build plate
+- pulling lever plate, 100% infill, no supports
+- pulling levers (2x), 100% infill, no supports
+- lensboard carrier, min 40% infill, support for overhang angles over 60 degrees, support touching the build plate
+- lensboard lower clamp, 100% infill, no supports
+- lensboard upper clamp, 100% infill, no supports
+- ground glass frame, infill 30%, no supports,
+- ground glass clamps, 100% infill, no supports
+- tripod plate, min 50% infill, no supports
+
+non-printed parts
+- bellows, for 4x5" order the bellows from standardcameras or from eBay
+- focusing rod: T6, 2 or 4mm lead, 150mm length
+- T6 nut (brass) 
+- flange coupler 6mm
+- M5 threaded rod, 180mm
+- M5x20 screw (1x)
+- M5 knurled nuts (3x)
+- M5x10 screws with knurled heads (2x)
+- M5x12 screws with knurled heads (2x)
+- M5 press-in nuts (4x)
+- countersunk screws 3x12 (30x)
+- countersunk screws 2x10 (6x)
+- ground glass 127x101mm
+- about 600mm of 1.25mm spring steel wire for the ground glass frame
+- about 100mm of 0.75mm spring steel wire for the pulling lever mechanism
+
