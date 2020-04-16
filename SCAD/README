@@ -1,4 +1,4 @@
-Some hints about my scripting and according conventions - as my OpenSCAD scripting is learning by doing, some constructs may look crude or even violate best practice.
+Some hints about the scripting and according conventions in here - as my OpenSCAD scripting is learning by doing, some constructs may look crude or even violate best practice.
 I am using some rules and conventions to make my scripting as consistent, readable and maintainable as possible.
 
 General logic for getting this design parametric:
