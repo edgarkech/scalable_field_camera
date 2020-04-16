@@ -9,7 +9,7 @@ Print settings vary slightly for the different parts - if not explicitly mention
 - 0.2mm layers or better
 - 4 walls
 - 4 bottom/top layers
-- when printing with PETG, use 15-20% more infill
+- when printing with PETG, use at least 15-20% more infill as hinted below, below numbers are for PLA
 The tolerances between the parts are quite tight, so you have to sand them. I recommend sanding the dovetail parts with 400 wet sanding paper. 
 
 printed parts list
