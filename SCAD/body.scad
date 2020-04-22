@@ -83,7 +83,7 @@ vBellowsFrameCutout_offsetZ = vBackPlateStrength+2;
 
 vBellowsScrew_d = vScrew1Hole_d+vTolerance;
 vBellowsScrew_h = vWall_strength;
-vBellowsScrew_offsetX = vBellowsFrameScrewHole_offsetXY;
+vBellowsScrew_offsetX = vBellowsBackFrameScrewHole_offsetXY;
 vBellowsScrew_offsetY = -(vBodyOuter_w/2);
 vBellowsScrew_offsetZ = vBellowsFrameCutout_offsetZ+vBellowsBackFrameOuter_h;
 
