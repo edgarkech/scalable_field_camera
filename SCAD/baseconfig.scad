@@ -8,8 +8,8 @@ $fn = 60; // we are using 60 fragments for cylinders and similar objects
 
 // we are including a format specific configuration sheet - but make sure to include only one!
 
-include <config_4x5.scad>;
-// include <config_5x7.scad>;
+// include <config_4x5.scad>;
+include <config_5x7.scad>;
 // include <config_8x10.scad>;
 
 // Arca Swiss tripod plate

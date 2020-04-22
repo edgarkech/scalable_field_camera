@@ -35,6 +35,7 @@ vLensboardLighttrap_d = 89;
 vLensboardLighttrap_h = 1+vTolerance;
 
 // bellows frame measures - the bellows frame design is derived from standardcameras.com
+// back frame
 vBellowsBackInner_l = 144; //???? check
 vBellowsBackInner_w = vBellowsBackInner_l;
 vBellowsBackOuter_l = vBellowsBackInner_l+1;
@@ -51,10 +52,32 @@ vBellowsBackLightTrapOuter_l = vBellowsBackFrameInner_l+2*2;
 vBellowsBackLightTrapOuter_w = vBellowsBackLightTrapOuter_l;
 vBellowsBackLightTrap_h = 3;
 
-vBellowsFrameScrewHole_d = 2;
-vBellowsFrameScrewHole_h = 10;
-vBellowsFrameScrewHole_offsetXY = 70;
-vBellowsFrameScrewHole_offsetZ = vBellowsBackFrameOuter_h/2;
+vBellowsBackFrameScrewHole_d = 2;
+vBellowsBackFrameScrewHole_h = 10;
+vBellowsBackFrameScrewHole_offsetXY = 70;
+vBellowsBackFrameScrewHole_offsetZ = vBellowsBackFrameOuter_h/2;
+
+// front frame
+vBellowsFrontInner_l = 94; 
+vBellowsFrontInner_w = vBellowsFrontInner_l;
+vBellowsFrontOuter_l = vBellowsFrontInner_l+1;
+vBellowsFrontOuter_w = vBellowsFrontOuter_l;
+
+vBellowsFrontFrameOuter_l = 104;
+vBellowsFrontFrameOuter_w = vBellowsFrontFrameOuter_l;
+vBellowsFrontFrameOuter_h = 7;
+vBellowsFrontFrameInner_l = 82;
+vBellowsFrontFrameInner_w = vBellowsFrontFrameInner_l;
+vBellowsFrontFrameInner_h = 5;
+
+vBellowsFrontLightTrapOuter_l = vBellowsFrontFrameInner_l+2*2;
+vBellowsFrontLightTrapOuter_w = vBellowsFrontLightTrapOuter_l;
+vBellowsFrontLightTrap_h = 0;
+
+vBellowsFrontFrameScrewHole_d = 2;
+vBellowsFrontFrameScrewHole_h = 10;
+vBellowsFrontFrameScrewHole_offsetXY = 40;
+vBellowsFrontFrameScrewHole_offsetZ = vBellowsFrontFrameOuter_h/2;
 
 // body dimensions
 vWall_strength = 5;
