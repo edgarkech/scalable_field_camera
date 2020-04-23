@@ -84,14 +84,16 @@ vBellowsFrontFrameScrewHole_offsetZ = vBellowsFrontFrameOuter_h/2;
 
 // body dimensions
 vWall_strength = 5;
-vBodyOuter_l = 235; // make sure this is at least 4*vWall_strength larger than vBellowsBackFrameOuter_l!
+vBodyOuter_l = 230;
+//vBodyOuter_l = 235; // make sure this is at least 4*vWall_strength larger than vBellowsBackFrameOuter_l!
 vBodyOuter_w = 220; // make sure this is at least 2*vWall_strength larger than vBellowsBackFrameOuter_l!
 vBodyOuter_h = 65;
 vBodyEdge_r = vWall_strength;
 
 // we will center our model on the Y axis and on the center of the bellows frame
 // at least for the 4x5 version, we have to do an asymetric offset of 2.5mm on the X-axis 
-vAsymOffsetX = -2.5;  
+vAsymOffsetX = 0;
+//vAsymOffsetX = -2.5;  
 
 // back plate
 vBackPlateLength = 210; // we will probably use about the same size as the bellows back frame
@@ -113,8 +115,8 @@ vUpperRail_w = vLowerRail_w;
 // cutout for stop indents
 vStopIndent_l = 4;
 vStopIndent_h = 5;
-vStopIndentDistance = 25; // shorter than 25 is not necessary
-vStopIndent_offsetX = 30; // don't go shorter than 20 if you intend to use a 90mm lens!
+vStopIndentDistance = 30; // shorter than 25 is not necessary
+vStopIndent_offsetX = 35; // don't go shorter than 20 if you intend to use a 90mm lens!
 
 // for all dovetails we use a base width of 5mm and a base height of 5mm
 // we are applying tolerances to the inner AND outer part of a dovetail, in width and height

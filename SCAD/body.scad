@@ -6,7 +6,8 @@ use <modules.scad>;
 
 
 vBellowsFrameUpperLength = vBellowsBackFrameOuter_l+1;
-vBellowsFrameLowerLength = vBellowsBackFrameInner_l+1;
+//vBellowsFrameLowerLength = vBellowsBackFrameInner_l+1;
+vBellowsFrameLowerLength = vBellowsBackLightTrapOuter_l + 2*vTolerance;
 
 vBottomWall_l = vWall_strength;
 vBottomWall_w = vBodyOuter_w-(2*vWall_strength);
@@ -76,7 +77,7 @@ vBackPlateScrewHole_offsetZ = 0;
 // we will use a raw cylinder with 4 fragments for the cutout, so we have to calculate the diameters
 vBellowsFrameCutoutLower_d = sqrt(2*pow(vBellowsFrameLowerLength,2));
 vBellowsFrameCutoutUpper_d = sqrt(2*pow(vBellowsFrameUpperLength,2));
-vBellowsFrameCutout_h = vBellowsBackFrameOuter_h-2;
+vBellowsFrameCutout_h = vBellowsBackFrameInner_h;
 vBellowsFrameCutout_offsetX = 0;
 vBellowsFrameCutout_offsetY = 0;
 vBellowsFrameCutout_offsetZ = vBackPlateStrength+2;
@@ -85,7 +86,7 @@ vBellowsScrew_d = vScrew1Hole_d+vTolerance;
 vBellowsScrew_h = vWall_strength;
 vBellowsScrew_offsetX = vBellowsBackFrameScrewHole_offsetXY;
 vBellowsScrew_offsetY = -(vBodyOuter_w/2);
-vBellowsScrew_offsetZ = vBellowsFrameCutout_offsetZ+vBellowsBackFrameOuter_h;
+vBellowsScrew_offsetZ = vBellowsFrameCutout_offsetZ+vBellowsBackFrameInner_h+vBellowsBackFrameScrewHole_offsetZ;
 
 // hinges
 vHingeOuter_d = 2*vWall_strength;
