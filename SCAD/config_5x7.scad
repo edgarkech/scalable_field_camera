@@ -7,11 +7,11 @@ This is the base configuration file for the 4x5" format
 vTolerance = 0.2;
 
 // sheet film and cassette measurements
-vFilmSheet_l = 127;
-vFilmSheet_w = 178;
+vFilmSheet_l = 178;
+vFilmSheet_w = 127;
 vCassette_l = 214; // A min
 vCassette_w = 150; // B max
-vCassette_h = 14.3; // C max
+vCassette_h = 14; // C max (14.3)
 vLightTrap_l = 1.5; // M2
 vLightTrap_w = vCassette_w;
 vLightTrap_h = 1.5; // M1
@@ -130,10 +130,12 @@ vFocusingKnob_d = 25;
 vFocusingKnob_h = 20;
 
 // stabilizer measures (just the outer measures of our stabilizer block, not the tripod slider)
-vStabilizerBase_l = 200;
+vStabilizerBase_l = vBodyOuter_l;
 vStabilizerBase_w = 100;  
-vStabilizerBase_h = 7;
+vStabilizerBase_h = 2;
+vStabilizerTotal_h = 7;
 vStabilizerDovetailBase_w = 50;
+
 // screw holes for the stabilizer
 vLidHoleCount_x = 6;
 vLidHoleDist_x = 35;
