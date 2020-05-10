@@ -1,12 +1,12 @@
 /*
-This is the base configuration file for the 4x5" format
+This is the base configuration file for the 5x7" format
 # we are not using the exact ANSI measures, but slightly rounded measures for slight simplification
 */
 
 // general tolerance
 vTolerance = 0.2;
 
-// sheet film and cassette measurements
+// sheet film and cassette measurements (roughly based on the ANSI measurements)
 vFilmSheet_l = 178;
 vFilmSheet_w = 127;
 vCassette_l = 214; // A min
@@ -79,9 +79,6 @@ vBellowsFrontFrameScrewHole_h = 10;
 vBellowsFrontFrameScrewHole_offsetXY = 50;
 vBellowsFrontFrameScrewHole_offsetZ = vBellowsFrontFrameOuter_h/2;
 
-
-
-
 // body dimensions
 vWall_strength = 5;
 vBodyOuter_l = 230;
@@ -123,6 +120,39 @@ vStopIndent_offsetX = 35; // don't go shorter than 20 if you intend to use a 90m
 vDoveTail_w = 5;
 vDoveTail_h = 5;
 vDoveTail_tolerance = 0.2;
+
+// front standard carrier / slider
+// width is depending on vUpperRail_w
+vSliderBase_w = vUpperRail_w + (4*vDoveTail_w);
+vSliderBase_l = 40; // make sure to have enough space in the body.
+
+
+// lever plate 
+vLeverPlateBase_w = vUpperRail_w - (8*vDoveTail_w);
+vLeverPlateBlock_w = 50;
+vLeverPlateBlock_l = vSliderBase_l-(2*vDoveTail_w);
+
+vFrontStandard_h = 160;
+vFrontStandardSlot_h = vFrontStandard_h - 30;
+
+
+// lensboard carrier
+vFrontPlate_length = vSliderBase_w; // vSliderBase_w is a bit too tight for 4x5", so there wie will add 5mm, for 5x7 vSliderBase_w is OK to get a squared lensboard carrier
+vFrontPlate_width = vSliderBase_w; //vFrontPlate_length;
+vFrontPlate_height = 16;
+vEdgeCutCylinder = floor(sqrt(2*pow(vFrontPlate_width,2)))-12;
+
+vTiltDovetail_d1 = 30-vTolerance;
+vTiltDovetail_d2 = vTiltDovetail_d1+(2*vDoveTail_w);
+vTiltDovetail_h = vDoveTail_w-vTolerance;
+
+vAxisHole_d = 10+vTolerance;
+vAxisHole_h = vDoveTail_w+vTolerance;
+
+vTiltLockBolt_d = 12;
+vTiltLockBolt_h = 18;
+vTiltLockBoltHole_d = 7;
+vTiltLockBoltHole_h = vTiltLockBolt_h;
 
 // focusing rod
 vFocusingRod_d = 6;
