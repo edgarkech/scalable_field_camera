@@ -46,7 +46,7 @@ vCassetteBaseBlock_offsetX = -vCassetteBaseBlock_l/2;
 vCassetteBaseBlock_offsetY = -vCassetteBaseBlock_w/2;
 vCassetteBaseBlock_offsetZ = vBackPlate_h;
 
-vCassetteGuideBaseCylinder_d = 16; // should be at least 2x vCassetteBaseBlock_h
+vCassetteGuideBaseCylinder_d = 24; // should be at least 2x vCassetteBaseBlock_h
 vCassetteGuideBaseCylinder_h = vCassetteBaseBlock_w;
 vCassetteGuideBaseCylinder_offsetX1 = -(vCassetteBaseBlock_l-vCassetteGuideBaseCylinder_d+5)/2;
 vCassetteGuideBaseCylinder_offsetX2 = (vCassetteBaseBlock_l-vCassetteGuideBaseCylinder_d)/2;
@@ -80,7 +80,7 @@ vSpringHole_offsetX = -vSpringHole_h/2;
 vSpringHole_offsetY = ((vCassetteBaseBlock_w-vCassetteCutout_w)/4)+(vCassetteCutout_w/2);
 vSpringHole_offsetZ = vBackPlate_h+vCassetteBaseBlock_h+(vSpringHole_d/2);
 
-vSpringHolder_l = 4;
+vSpringHolder_l = 3;
 vSpringHolder_w = 10;
 vSpringHolder_h = 4;
 vSpringHolder_offsetX = vCassetteBaseBlock_offsetX-2.5;
