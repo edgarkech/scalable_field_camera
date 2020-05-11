@@ -139,9 +139,16 @@ vFrontPlate_width = vSliderBase_w; //vFrontPlate_length;
 vFrontPlate_height = 16;
 vEdgeCutCylinder = floor(sqrt(2*pow(vFrontPlate_width,2)))-8;
 
-vTiltDovetail_d1 = 30-vTolerance;
-vTiltDovetail_d2 = vTiltDovetail_d1+(2*vDoveTail_w);
+vTiltDovetailBase_d1 = 30;
+vTiltDovetailBase_d2 = vTiltDovetailBase_d1+(2*vDoveTail_w);
+vTiltDovetailBaseBlock_d = vTiltDovetailBase_d1+(4*vDoveTail_w);
+
+vTiltDovetail_d1 = vTiltDovetailBase_d1-vTolerance;
+vTiltDovetail_d2 = vTiltDovetailBase_d2-vTolerance;
 vTiltDovetail_h = vDoveTail_w-vTolerance;
+
+vTiltDovetailCutout_d1 = vTiltDovetailBase_d2+vTolerance;
+vTiltDovetailCutout_d2 = vTiltDovetailBase_d1+vTolerance;
 
 vAxisHole_d = 10+vTolerance;
 vAxisHole_h = vDoveTail_w+vTolerance;
@@ -151,7 +158,11 @@ vTiltLockBolt_h = 12;
 vTiltLockBoltHole_d = 7;
 vTiltLockBoltHole_h = vTiltLockBolt_h;
 
-
+vTiltHeight = 50;
+vTiltRadius = vFrontPlate_length/2;
+vTiltAngleMinus = -7;
+vTiltAnglePlus = 7;
+vTiltAxis_d = 10-vTolerance;
 
 // focusing rod
 vFocusingRod_d = 6;
