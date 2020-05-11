@@ -43,8 +43,18 @@ to do / next steps
 - work around the current -7/+7 degrees tilt restriction (low priority)
 - mechanism to lock the front lid when folding (done)
 - foldable hood for the ground glass
-- OpenSCAD code clean up and refinement (work in progress)
-- releasing the OpenSCAD code and make this project real open source
-- scaling up to 5x7" (means also designing bellows frames) 
-- re-evaluate 4x5" bellows options (different source, also requiring the addition of my "own" bellows frames) 
+- OpenSCAD code clean up and refinement (work in progress, almost finished)
+- releasing the OpenSCAD code and make this project real open source  (work in progress, almost finished)
+- scaling up to 5x7" (work in progress, almost finished)
+- re-evaluate 4x5" bellows options (different source, design for configurable bellows frames is done) 
 - using the built-in github wiki for documentation
+
+Update 2020-05-11
+I am getting closer to the 5x7" version, only a handful parts are missing.
+Although the 5x7" version is technically identical to the 4x5", there have been some changes to all SCAD files and I didn't test all of them again with 4x5. 
+So if you are brave enough to work with the SCAD files to generate your own (4x5") STLs, please check them against my original 4x5 STLs.
+Some very kind people asked my about the possibility to show their appreciation by donating to me.
+If you really felt somehow obliged to do so, then you should use https://paypal.me/EdgarKech :-)
+But I am also happy if you post pictures of your build to https://www.facebook.com/groups/3dprinting.and.analog.photography/
+
+
