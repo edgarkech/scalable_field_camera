@@ -54,7 +54,7 @@ I am getting closer to the 5x7" version, only a handful parts are missing.
 Although the 5x7" version is technically identical to the 4x5", there have been some changes to all SCAD files and I didn't test all of them again with 4x5. 
 So if you are brave enough to work with the SCAD files to generate your own (4x5") STLs, please check them against my original 4x5 STLs.
 
-Some very kind people asked my about the possibility to show their appreciation by donating to me.
+Some very kind people asked me about the possibility to show their appreciation by donating to me.
 If you really felt somehow obliged to do so, then you should use https://paypal.me/EdgarKech :-) .
 But I am also happy if you post pictures of your build to https://www.facebook.com/groups/3dprinting.and.analog.photography/
 
