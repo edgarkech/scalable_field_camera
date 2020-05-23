@@ -43,9 +43,9 @@ to do / next steps
 - work around the current -7/+7 degrees tilt restriction (low priority)
 - mechanism to lock the front lid when folding (done)
 - foldable hood for the ground glass
-- OpenSCAD code clean up and refinement (work in progress, almost finished)
-- releasing the OpenSCAD code and make this project real open source  (work in progress, almost finished)
-- scaling up to 5x7" (work in progress, almost finished)
+- OpenSCAD code clean up and refinement (done)
+- releasing the OpenSCAD code and make this project real open source  (done)
+- scaling up to 5x7" (done)
 - re-evaluate 4x5" bellows options (different source, design for configurable bellows frames is done) 
 - using the built-in github wiki for documentation
 
