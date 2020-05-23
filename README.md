@@ -49,9 +49,8 @@ to do / next steps
 - re-evaluate 4x5" bellows options (different source, design for configurable bellows frames is done) 
 - using the built-in github wiki for documentation
 
-Update 2020-05-11
-I am getting closer to the 5x7" version, only a handful parts are missing.
-Although the 5x7" version is technically identical to the 4x5", there have been some changes to all SCAD files and I didn't test all of them again with 4x5. 
+Update 2020-05-23
+The 5x7 version is also finished. Although the 5x7" version is technically identical to the 4x5", there have been some changes to all SCAD files and I didn't test all of them again with 4x5. 
 So if you are brave enough to work with the SCAD files to generate your own (4x5") STLs, please check them against my original 4x5 STLs.
 
 Some very kind people asked me about the possibility to show their appreciation by donating to me.
