@@ -36,18 +36,40 @@ printed parts list
 
 non-printed parts
 - bellows, for 4x5" order the bellows from standardcameras.com or from eBay or from aliexpress (e.g. from ecbuyonline2008 aka eTone)
-- focusing rod: T6, 2 or 4mm lead, 150mm length
+- focusing rod: T6, 2 or 4mm lead, 160mm length
 - T6 nut (brass) 
 - flange coupler 6mm
 - M5 threaded rod, 200mm
 - M5x20 screw (1x)
-- M5 knurled nuts (3x)
-- M5x10 screws with knurled heads (2x)
-- M5x12 screws with knurled heads (2x)
-- M5 press-in nuts (4x)
-- countersunk screws 3x12 (30x)
-- countersunk screws 2x10 (6x)
+- M5x10 knurled nuts (3x)
+- M5x10...12 screws with knurled heads (2x)
+- M5x12...16 screws with knurled heads (2x)
+- M5 press-in nuts (5x)
+- countersunk screws 3x12 (about 35x)
+- countersunk screws 2x10 (about 10x)
 - ground glass 127x101mm
 - about 600mm of 1.25mm spring steel wire for the ground glass frame
 - about 100mm of 0.75mm spring steel wire for the pulling lever mechanism
 
+some hints & sources:
+focusing rod:
+Find "T6 lead screw" with fitting brass nuts on aliexpress, ebay or your preferred source, similar to this offer: https://www.aliexpress.com/item/32507277503.html. 
+Take either 2mm or 4mm lead with 200mm length. 
+Cut it to about 160 to 165mm. 
+Press the nut into the 10mm hole of the rail lever. 
+Secure it with one small screw and file down everything hanging over
+
+focusing wheel:
+Find "6mm flange coupler" on aliexpress, ebay or your preferred source, similar to this offer: https://www.aliexpress.com/item/4000208248034.html.
+Press it into the Focusing wheel and align the side holes with the threads, so you can screw in the tiny screws.
+
+threaded inserts:
+Find "M5 threaded insert" on aliexpress, ebay or your preferred source. I am using M5x6x7 brass insert similar to this: https://www.ebay.com/itm/M5x-5-16mm-Injection-Molding-Nut-Brass-Knurled-Thread-Inserts-Nuts/332250787457. 
+Make them hot and press them into the according holes using a M5 threaded rod or a longer screw.
+
+knobs:
+All knobs are quite standard M5 screws or nuts. 
+3x nut M5, one for swing and two for the lid. 
+2x M5x16 for tilt, 2x M5x12 for shift (the flat ones). 
+Also one M5x12 for the tripod plate. 
+I prefer stainless steel but anything else with similar size will do.
