@@ -134,10 +134,10 @@ vFrontStandard_h = 130;
 vFrontStandardSlot_h = vFrontStandard_h - 30;
 
 // lensboard carrier
-vFrontPlate_length = vSliderBase_w; // vSliderBase_w is a bit too tight for 4x5", so there wie will add 5mm, for 5x7 vSliderBase_w is OK to get a squared lensboard carrier
+vFrontPlate_length = vSliderBase_w+6; // vSliderBase_w is a bit too tight for 4x5", so there we will add 5mm, for 5x7 vSliderBase_w is OK to get a squared lensboard carrier
 vFrontPlate_width = vSliderBase_w; //vFrontPlate_length;
 vFrontPlate_height = 16;
-vEdgeCutCylinder = floor(sqrt(2*pow(vFrontPlate_width,2)))-8;
+vEdgeCutCylinder = floor(sqrt(2*pow(vFrontPlate_width,2)))-5;
 
 vTiltDovetailBase_d1 = 30;
 vTiltDovetailBase_d2 = vTiltDovetailBase_d1+(2*vDoveTail_w);
@@ -154,8 +154,8 @@ vAxisHole_d = 10+vTolerance;
 vAxisHole_h = vDoveTail_w+vTolerance;
 
 vTiltLockBolt_d = 12;
-vTiltLockBolt_h = 12;
-vTiltLockBoltHole_d = 7;
+vTiltLockBolt_h = 14;
+vTiltLockBoltHole_d = 8;
 vTiltLockBoltHole_h = vTiltLockBolt_h;
 
 vTiltHeight = 50;

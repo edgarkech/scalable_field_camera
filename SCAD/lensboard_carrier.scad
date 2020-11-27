@@ -63,8 +63,8 @@ vBellowsScrewHole_offsetZ = vBellowsCutoutLower_height/2;
 
 vClampHole_d = 2;
 vClampHole_h = 8;
-vClampHole_offsetX1 = vLensBoardCutout_offsetX-5;
-vClampHole_offsetX2 = vLensBoardCutout_offsetX+vLensboard_l+5;
+vClampHole_offsetX1 = vLensBoardCutout_offsetX-4;
+vClampHole_offsetX2 = vLensBoardCutout_offsetX+vLensboard_l+4;
 vClampHole_offsetY = 25;
 vClampHole_offsetZ = vFrontPlate_height-vClampHole_h;
 
@@ -216,11 +216,12 @@ translate([vClampHole_offsetX1, -vClampHole_offsetY, vClampHole_offsetZ])
     cylinder(d=vClampHole_d, h=vClampHole_h);
 translate([vClampHole_offsetX1, vClampHole_offsetY, vClampHole_offsetZ])
     cylinder(d=vClampHole_d, h=vClampHole_h);
-
+/*
+// EK 2020-11-27: Don't use this cutout for the 4x5 version.
 // cutout for swing screw
 translate([vSwingScrewCutout_offsetX, vSwingScrewCutout_offsetY, vSwingScrewCutout_offsetZ])
     cube([vSwingScrewCutout_l, vSwingScrewCutout_w, vSwingScrewCutout_h]);
-
+*/
 };
 
 
