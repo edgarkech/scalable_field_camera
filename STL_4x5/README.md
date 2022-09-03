@@ -56,10 +56,12 @@ The tolerances between the parts are quite tight, so you have to sand them. I re
 ## some hints & sources:
 ### bellows
 History has shown that standardcameras is sometimes out of stock for the bellows.
-Alternative 1: build your own bellows (sorry, no howto from me, but there are lots of excellent sources!)
-Alternative 2: Find a replacement bellows for another field camera (e.g. Linhof Technika 4x5, Toyo 45A, Horseman, HD/HF/FA 45, ...). 
-Make sure to get squared bellows with a front measurement of something between 88 and 98mm (default is 94mm) and a back measurement of something between 141 and 153mm (default is 144mm)
-In each case you will have to create your own STLs for the bellow frames from the SCAD files. In the config_4x5.scad file find the variables "vBellowsFrontInner_l" and "vBellowsBackInner_l" and change them to the measurements of your bellows, then create the STLs.
+- Alternative 1: build your own bellows (sorry, no howto from me, but there are lots of excellent sources!)
+- Alternative 2: Find a replacement bellows for another field camera (e.g. Linhof Technika 4x5, Toyo 45A, Horseman, HD/HF/FA 45, ...). 
+
+Make sure to get squared bellows with a front measurement of something between 88 and 98mm (default is 94mm) and a back measurement of something between 141 and 153mm (default is 144mm).
+
+You have to create your own STLs for the bellow frames from the according SCAD files. In the config_4x5.scad file find the variables "vBellowsFrontInner_l" and "vBellowsBackInner_l" and change them to the measurements of your bellows - don't change anything else unless you have a really good reason for it. Let OpenSCAD render your SCAD files and export to STL.
 
 ### focusing rod:
 Find "T6 lead screw" with fitting brass nuts on aliexpress, ebay or your preferred source, similar to this offer: https://www.aliexpress.com/item/32507277503.html. 
