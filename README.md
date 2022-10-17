@@ -53,6 +53,11 @@ _This is my attempt to create a scalable large format field camera design._
 The 5x7 version is also finished. Although the 5x7" version is technically identical to the 4x5", there have been some changes to all SCAD files and I didn't test all of them again with 4x5. 
 So if you are brave enough to work with the SCAD files to generate your own (4x5") STLs, please check them against my original 4x5 STLs.
 
+# Update 2022-10-17
+In the past there were some rumours or jokes about creating the 8x10" version, but nobody seemed to be brave enough to start the upscaling project. Or maybe the initially brave people gave up in despair... 
+Until today. I had a conversation with Miguel Mesa (https://www.facebook.com/miguemesa), who now wants to start scaling up the design to 8x10" - which would be another milestone for my design. 
+Although I am still pausing most of my photographic and 3d printing related activities, I am really curious how my design may evolve. And I want to encourage all watchers interested in a 8x10" version to participate and maybe even contribute to this next milestone.   
+
 **Some very kind people asked me about the possibility to show their appreciation by donating to me.**
 
 If you really felt somehow obliged to do so, then you should use https://paypal.me/EdgarKech :-) .
