@@ -23,7 +23,7 @@ printed parts list
 - locking levers (1x original, 1x mirrored), infill 100%, no supports
 - rails, min 40% infill, support for overhang angles over 60 degrees
 - slider, min 50% infill, no supports
-- front standard, min 50% infill, support for overhang angles over 80 degrees, support everywhere
+- front standard, min 50% infill, support for overhang angles over 80 degrees, support everywhere, do not print the standard in its upright position, but layed down to its back side
 - front standard tilt plates (2x) min 50% infill, support for overhang angles over 80 degrees, support touching the build plate
 - pulling lever plate, 100% infill, no supports
 - pulling levers (1x original, 1x mirrored), 100% infill, no supports
@@ -33,6 +33,8 @@ printed parts list
 - ground glass frame, infill 30%, no supports,
 - ground glass clamps, 100% infill, no supports
 - tripod plate, min 50% infill, no supports
+- bellows front frame, min 50% infill, no supports
+- bellows back frame, min 50% infill, no supports
 
 non-printed parts
 - bellows, order the bellows from from eBay or aliexpress
@@ -58,6 +60,13 @@ Take either 2mm or 4mm lead with 200mm length.
 Cut it down to fit into the lid. 
 Press the nut into the 10mm hole of the rail lever. 
 Secure it with one small screw and file down everything hanging over
+
+bellows frames:
+The bellows frames consist of two individual parts (inner and outer frame), but I modeled them as one piece for easier modeling and printing. 
+They are just "linked" together via the bottom 0.1mm (for easier printing). Just use a knife to split inner and outer frame and clean up the edges.
+
+front standart:
+
 
 focusing wheel:
 Find "6mm flange coupler" on aliexpress, ebay or your preferred source, similar to this offer: https://www.aliexpress.com/item/4000208248034.html.
