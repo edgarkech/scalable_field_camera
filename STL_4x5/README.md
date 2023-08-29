@@ -25,7 +25,7 @@ The tolerances between the parts are quite tight, so you have to sand them. I re
 - locking levers (1x original, 1x mirrored), infill 100%, no supports
 - rails, min 40% infill, support for overhang angles over 60 degrees
 - slider, min 50% infill, no supports
-- front standard, min 50% infill, support for overhang angles over 80 degrees, support everywhere
+- front standard, min 50% infill, support for overhang angles over 80 degrees, support everywhere, do not print the standard in its upright position, but layed down to its back side
 - front standard tilt plates (2x) min 50% infill, support for overhang angles over 80 degrees, support touching the build plate
 - pulling lever plate, 100% infill, no supports
 - pulling levers (1x original, 1x mirrored), 100% infill, no supports
@@ -35,6 +35,8 @@ The tolerances between the parts are quite tight, so you have to sand them. I re
 - ground glass frame, infill 30%, no supports,
 - ground glass clamps, 100% infill, no supports
 - tripod plate, min 50% infill, no supports
+- only needed when not using a bellows from standard cameras: bellows front frame, min 50% infill, no supports
+- only needed when not using a bellows from standard cameras: bellows back frame, min 50% infill, no supports
 
 ### non-printed parts
 - bellows, for 4x5" order the bellows from standardcameras.com or from eBay or from aliexpress (e.g. from ecbuyonline2008 aka eTone)
@@ -62,6 +64,13 @@ History has shown that standardcameras is sometimes out of stock for the bellows
 Make sure to get squared bellows with a front measurement of something between 88 and 98mm (default is 94mm) and a back measurement of something between 141 and 153mm (default is 144mm).
 
 You have to create your own STLs for the bellow frames from the according SCAD files. In the config_4x5.scad file find the variables "vBellowsFrontInner_l" and "vBellowsBackInner_l" and change them to the measurements of your bellows - don't change anything else unless you have a really good reason for it. Let OpenSCAD render your SCAD files and export to STL.
+
+### bellows frames (in case you are not using bellows from standard cameras):
+The bellows frames consist of two individual parts (inner and outer frame), but I modeled them as one piece for easier modeling and printing. 
+They are just "linked" together via the bottom 0.1mm (for easier printing). Just use a knife to split inner and outer frame and clean up the edges.
+
+### front standart:
+don't try to print the front standart in its upright position. Lay it down ot its back side and make sure to allow support everywhere.
 
 ### focusing rod:
 Find "T6 lead screw" with fitting brass nuts on aliexpress, ebay or your preferred source, similar to this offer: https://www.aliexpress.com/item/32507277503.html. 
