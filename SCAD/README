@@ -23,4 +23,16 @@ Other conventions
 - most parts are symetric, so we center them on the X axis
 - try to keep the scripting readable
 
- 
+Creating STLs for bellows frames:
+1. go to https://github.com/edgarkech/scalable_field_camera/releases/tag/v1.02 and download the complete source code zip-file. (skip, if your already downloaded+extracted the sources)
+2. extract the zip file. you should find a subfolder "SCAD" (skip, if your already downloaded+extracted the sources)
+3. go to the SCAD folder and open the "baseconfig.scad" file
+4. make sure the correct format-specific include line is active (not startingwith "//") - there are three lines, one for 4x5, one for 5x7, one for 8x10; the two lines NOT for your targeted format should be commented out, e.g. starting with "//"
+5. if necessary make changes by commenting/uncommenting and save the file
+6. open the relevant format-specific config file (probably config_4x5.scad)
+7. take the real measurements from your bellows. On the front you should have a measurement somewhere between 88 and 98mm (default is 94), on the back it should be between 141 and 153mm (default is 144mm)
+8. find the variables "vBellowsFrontInner_l" and "vBellowsBackInner_l" and change them to the measurements of your bellows - don't change anything else unless you have a really good reason for it. 
+9. save the file.
+10. open the bellows_front_frame.scad file, let OpenSCAD render it and export to STL.
+11. open the bellows_back_frame.scad file, let OpenSCAD render it and export to STL.
+12. print your STL files 
