@@ -36,7 +36,7 @@ vLensboardLighttrap_h = 1+vTolerance;
 
 // bellows frame measures - the bellows frame design is derived from standardcameras.com
 // back frame
-vBellowsBackInner_l = 144; //???? check
+vBellowsBackInner_l = 144; //???? check and replace with the measurement from your bellows!
 vBellowsBackInner_w = vBellowsBackInner_l;
 vBellowsBackOuter_l = vBellowsBackInner_l+1;
 vBellowsBackOuter_w = vBellowsBackOuter_l;
@@ -58,7 +58,7 @@ vBellowsBackFrameScrewHole_offsetXY = 70;
 vBellowsBackFrameScrewHole_offsetZ = vBellowsBackFrameOuter_h/2;
 
 // front frame
-vBellowsFrontInner_l = 94; 
+vBellowsFrontInner_l = 94; //???? check and replace with the measurement from your bellows!
 vBellowsFrontInner_w = vBellowsFrontInner_l;
 vBellowsFrontOuter_l = vBellowsFrontInner_l+1;
 vBellowsFrontOuter_w = vBellowsFrontOuter_l;
