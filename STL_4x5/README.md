@@ -69,8 +69,25 @@ You have to create your own STLs for the bellow frames from the according SCAD f
 The bellows frames consist of two individual parts (inner and outer frame), but I modeled them as one piece for easier modeling and printing. 
 They are just "linked" together via the bottom 0.1mm (for easier printing). Just use a knife to split inner and outer frame and clean up the edges.
 
+### dove tails:
+the fit of the various dove tails may be very tight in the beginning. So I'd recommend pre-assembling the dovetails and trying to move the parts. If it is too tight, use fine sandpaper until there is only very little friction. It shouldn't get wobbly.
+
 ### front standart:
 don't try to print the front standart in its upright position. Lay it down ot its back side and make sure to allow support everywhere.
+Assembling:
+- Make sure the dove tails of slider and front standard aren't too tight (see section "dove tails")
+- put slider and front standard together before assembling the pulling lever mechanism.
+
+### pulling levers assembly
+- pulling levers and pulling lever plate: put them together and rotate the pulling levers on their axis until there is no noticable friction. If the holes in the levers are too small, use a 8mm drill bit (just by hand) to widen it.
+- pulling lever plate: make sure that little horizontal hole is open (if not, you could use either a 1.5mm drill bit or a hot wire to push it open). This is where you put the spring wire through and bend it on both sides almost to a right angle (let's say 110 degrees). Don't cut the spring steel wire too short before final assembly.
+- see the pictures in the pictures/version_1.0 folder https://github.com/edgarkech/scalable_field_camera/tree/master/pictures/version_1.0 
+
+### assembling the front standard
+- start with slider and front standard, otherwise it may be difficult to get the front standard onto the slider with the pulling levers already assembled.
+- pre-assemble pulling lever plate, spring wire and pulling levers
+- put the pulling assembly to the bottom of the slider and screw it to the slider.
+- see again the pictures in the pictures/version_1.0 folder https://github.com/edgarkech/scalable_field_camera/tree/master/pictures/version_1.0 
 
 ### focusing rod:
 Find "T6 lead screw" with fitting brass nuts on aliexpress, ebay or your preferred source, similar to this offer: https://www.aliexpress.com/item/32507277503.html. 
@@ -78,6 +95,7 @@ Take either 2mm or 4mm lead with 200mm length.
 Cut it to about 160 to 165mm. 
 Press the nut into the 10mm hole of the rail lever. 
 Secure it with one small screw and file down everything hanging over
+- see again the pictures in the pictures/version_1.0 folder https://github.com/edgarkech/scalable_field_camera/tree/master/pictures/version_1.0 
 
 ### focusing wheel:
 Find "6mm flange coupler" on aliexpress, ebay or your preferred source, similar to this offer: https://www.aliexpress.com/item/4000208248034.html.
